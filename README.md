@@ -58,17 +58,18 @@ My author page on Goodreads: https://www.goodreads.com/author/show/14224500.Mark
 **Web Services**
 - Chapter 9 Building Web Services Using ASP.NET Core Web API
   - [code/MatureWeb/Northwind.WebApi](code/MatureWeb/Northwind.WebApi)
-- Chapter 10 Building Clients for Web Services and Integration Testing
+- Chapter 10 Building Clients for Web Services
+- Chapter 11 Testing and Debugging Web Services
   - [code/MatureWeb/Northwind.IntegrationTests](code/MatureWeb/Northwind.IntegrationTests)
-- Chapter 11 Building Web Services Using ASP.NET Core OData
+- Chapter 12 Building Web Services Using ASP.NET Core OData
   - [code/MatureWeb/Northwind.Odata](code/MatureWeb/Northwind.Odata)
-- Chapter 12 Building Web Services Using FastEndpoints
+- Chapter 13 Building Web Services Using FastEndpoints
   - [code/MatureWeb/Northwind.FastEndpoints](code/MatureWeb/Northwind.FastEndpoints)
 
 **Web Content Management Systems**
-- Chapter 13 Web Content Management Using Umbraco CMS
+- Chapter 14 Web Content Management Using Umbraco CMS
   - [code/MatureWeb/Northwind.Cms](code/MatureWeb/Northwind.Cms)
-- Chapter 14 Customizing and Extending Umbraco CMS
+- Chapter 15 Customizing and Extending Umbraco CMS
 
 **Appendix**
 - [Appendix, Answers to the Test Your Knowledge Questions](docs/B31469_Appendix.pdf).

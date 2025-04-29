@@ -30,7 +30,7 @@
 - [Chapter 10 - Building Clients for Web Services](#chapter-10---building-clients-for-web-services)
   - [Web service clients](#web-service-clients)
   - [Securing web services](#securing-web-services)
-- [Chapter 11 - Integration Testing Web Services](#chapter-11---integration-testing-web-services)
+- [Chapter 11 - Testing and Debugging Web Services](#chapter-11---testing-and-debugging-web-services)
   - [Unit Testing and Mocking](#unit-testing-and-mocking)
   - [Integration Testing](#integration-testing)
 - [Chapter 12 - Building Web Services Using ASP.NET Core OData](#chapter-12---building-web-services-using-aspnet-core-odata)
@@ -249,7 +249,7 @@ The official announcement links are useful because they describe the most import
 - [CORS can be enabled to allow different origin requests](https://learn.microsoft.com/en-us/aspnet/core/security/cors)
 - [Common HTTP security headers that you might want to add](https://www.meziantou.net/security-headers-in-asp-net-core.htm)
 
-# Chapter 11 - Integration Testing Web Services
+# Chapter 11 - Testing and Debugging Web Services
 
 ## Unit Testing and Mocking
 
