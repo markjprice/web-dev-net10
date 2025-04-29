@@ -1,4 +1,4 @@
-- [Chapter 1 - Introducing Web Development with Controllers](#chapter-1---introducing-web-development-with-controllers)
+- [Chapter 1 - Introducing Real-World Web Development with .NET](#chapter-1---introducing-real-world-web-development-with-net)
   - [Set up your development environment](#set-up-your-development-environment)
   - [Additional Packt books](#additional-packt-books)
   - [Visual Studio](#visual-studio)
@@ -25,24 +25,25 @@
 - [Chapter 9 - Building Web Services Using ASP.NET Core Web API](#chapter-9---building-web-services-using-aspnet-core-web-api)
   - [Web service technologies](#web-service-technologies)
   - [Web service routing](#web-service-routing)
-  - [Web service clients](#web-service-clients)
   - [Documenting web services](#documenting-web-services)
-  - [Securing web services](#securing-web-services)
   - [Health checks and reliable web services](#health-checks-and-reliable-web-services)
-- [Chapter 10 - Building Web Services Using ASP.NET Core OData](#chapter-10---building-web-services-using-aspnet-core-odata)
-- [Chapter 11 - Building Web Services Using FastEndpoints](#chapter-11---building-web-services-using-fastendpoints)
-- [Chapter 12 - Web Service Integration Testing](#chapter-12---web-service-integration-testing)
+- [Chapter 10 - Building Clients for Web Services](#chapter-10---building-clients-for-web-services)
+  - [Web service clients](#web-service-clients)
+  - [Securing web services](#securing-web-services)
+- [Chapter 11 - Integration Testing Web Services](#chapter-11---integration-testing-web-services)
   - [Unit Testing and Mocking](#unit-testing-and-mocking)
   - [Integration Testing](#integration-testing)
-- [Chapter 13 - Web Content Management Using Umbraco](#chapter-13---web-content-management-using-umbraco)
+- [Chapter 12 - Building Web Services Using ASP.NET Core OData](#chapter-12---building-web-services-using-aspnet-core-odata)
+- [Chapter 13 - Building Web Services Using FastEndpoints](#chapter-13---building-web-services-using-fastendpoints)
+- [Chapter 14 - Web Content Management Using Umbraco CMS](#chapter-14---web-content-management-using-umbraco-cms)
   - [Umbraco CMS](#umbraco-cms)
   - [Other .NET Content Management Systems](#other-net-content-management-systems)
-- [Chapter 14 - Customizing and Extending Umbraco](#chapter-14---customizing-and-extending-umbraco)
+- [Chapter 15 - Customizing and Extending Umbraco CMS](#chapter-15---customizing-and-extending-umbraco-cms)
 
-# Chapter 1 - Introducing Web Development with Controllers
+# Chapter 1 - Introducing Real-World Web Development with .NET
 
 ## Set up your development environment
-- [Set up your development environment](https://github.com/markjprice/web-dev-net9/blob/main/docs/ch01-setupdev-env.md)
+- [Set up your development environment](https://github.com/markjprice/web-dev-net10/blob/main/docs/ch01-setupdev-env.md)
 - [Kestrel server](https://github.com/dotnet/aspnetcore/tree/main/src/Servers/Kestrel)
 - [Dan Roth quote](https://github.com/dotnet/aspnetcore/issues/51834#issuecomment-1913282747)
 - [Dan Roth profile](https://devblogs.microsoft.com/dotnet/author/danroth27/)
@@ -50,7 +51,7 @@
 - [Almost 100,000 websites built using Umbraco](https://trends.builtwith.com/websitelist/Umbraco/Historical)
 - [Umbraco is open source and hosted on GitHub](https://github.com/umbraco/Umbraco-CMS)
 - [Central Package Management](https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management)
-- [Northwind database SQL scripts](https://github.com/markjprice/web-dev-net9/tree/main/scripts/sql-scripts)
+- [Northwind database SQL scripts](https://github.com/markjprice/web-dev-net10/tree/main/scripts/sql-scripts)
 
 ## Additional Packt books
 - [ASP.NET Core 8 and Angular - Sixth Edition](https://www.amazon.com/ASP-NET-Core-Angular-Full-stack-development/dp/1805129937/)
@@ -58,7 +59,7 @@
 - [ASP.NET Core and Vue.js](https://www.amazon.com/ASP-NET-Core-Vue-js-real-worldapplications-ebook/dp/B08QTVV8RK/)
 
 ## Visual Studio
-- [Code Editors](https://github.com/markjprice/web-dev-net9/tree/main/docs/code-editors/)
+- [Code Editors](https://github.com/markjprice/web-dev-net10/tree/main/docs/code-editors/)
 - [Download Visual Studio for Windows](https://visualstudio.microsoft.com/downloads/)
 - [Sign up for a Microsoft account](https://signup.live.com/)
 - [Visual Studio for Windows documentation](https://learn.microsoft.com/en-us/visualstudio/windows/)
@@ -216,14 +217,6 @@ The official announcement links are useful because they describe the most import
 - [Proposed standard for Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc7807)
 - [Implementing problem details](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.problemdetails)
 
-## Web service clients
-- [REST Client](https://github.com/Huachao/vscode-restclient/blob/master/README.md)
-- [It is the BaseAddress and DefaultRequestHeaders properties that you should treat with caution with multiple threads](https://medium.com/@nuno.caneco/c-httpclient-should-not-be-disposed-or-should-it-45d2a8f568bc)
-- [You're using HttpClient wrong and it is destabilizing your software](https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/)
-- [How to initiate HTTP requests](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-requests)
-- [Issues with the original HttpClient class available in .NET](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net)
-- [HttpClient extension methods for easily working with JSON](https://github.com/dotnet/designs/blob/main/accepted/2020/json-http-extensions/json-http-extensions.md)
-
 ## Documenting web services
 - [Swagger](https://swagger.io/)
 - [Swagger Tools](https://swagger.io/tools/)
@@ -233,11 +226,6 @@ The official announcement links are useful because they describe the most import
 - [Benefits of setting version compatibility](https://learn.microsoft.com/en-us/aspnet/core/mvc/compatibility-version)
 - [Check latest version of analyzers package](http://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers/)
 
-## Securing web services
-- [Verifying that the tokens used to call your web APIs are requested with the expected claims](https://learn.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-verification-scope-app-roles)
-- [CORS can be enabled to allow different origin requests](https://learn.microsoft.com/en-us/aspnet/core/security/cors)
-- [Common HTTP security headers that you might want to add](https://www.meziantou.net/security-headers-in-asp-net-core.htm)
-
 ## Health checks and reliable web services
 - [Health checks in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks)
 - [How to extend the health check response](https://devblogs.microsoft.com/dotnet/asp-net-core-2-2-0-preview1-healthcheck/)
@@ -245,27 +233,23 @@ The official announcement links are useful because they describe the most import
 - [Use HttpClientFactory to implement resilient HTTP requests](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
 - [Redis](https://redis.io)
 - [Resilience and chaos engineering](https://devblogs.microsoft.com/dotnet/resilience-and-chaos-engineering/)
-- [Dev Tunnels: A Game Changer for Mobile Developers](https://devblogs.microsoft.com/dotnet/dev-tunnels-a-game-changer-for-mobile-developers/)
 
-# Chapter 10 - Building Web Services Using ASP.NET Core OData
+# Chapter 10 - Building Clients for Web Services
 
-- [OData - the best way to REST](https://www.odata.org/)
-- [Welcome to OData](https://learn.microsoft.com/en-us/odata/overview)
-- [OData reference](https://learn.microsoft.com/en-us/dotnet/api/overview/odata-dotnet/)
-- [OData DevBlog](https://devblogs.microsoft.com/odata/)
-- [$compute and $search in ASP.NET Core OData 8](https://devblogs.microsoft.com/odata/compute-and-search-in-asp-net-core-odata-8/)
-- [The Future of OData NxT (Neo)](https://devblogs.microsoft.com/odata/the-future-of-odata-odata-nxt/)
-- [API versioning extension with ASP.NET Core OData 8](https://devblogs.microsoft.com/odata/api-versioning-extension-with-asp-net-core-odata-8/)
+## Web service clients
+- [REST Client](https://github.com/Huachao/vscode-restclient/blob/master/README.md)
+- [It is the BaseAddress and DefaultRequestHeaders properties that you should treat with caution with multiple threads](https://medium.com/@nuno.caneco/c-httpclient-should-not-be-disposed-or-should-it-45d2a8f568bc)
+- [You're using HttpClient wrong and it is destabilizing your software](https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/)
+- [How to initiate HTTP requests](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-requests)
+- [Issues with the original HttpClient class available in .NET](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net)
+- [HttpClient extension methods for easily working with JSON](https://github.com/dotnet/designs/blob/main/accepted/2020/json-http-extensions/json-http-extensions.md)
 
-# Chapter 11 - Building Web Services Using FastEndpoints
+## Securing web services
+- [Verifying that the tokens used to call your web APIs are requested with the expected claims](https://learn.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-verification-scope-app-roles)
+- [CORS can be enabled to allow different origin requests](https://learn.microsoft.com/en-us/aspnet/core/security/cors)
+- [Common HTTP security headers that you might want to add](https://www.meziantou.net/security-headers-in-asp-net-core.htm)
 
-- [TechEmpower benchmarks](https://fast-endpoints.com/benchmarks)
-- [Official documentation for FastEndpoints](https://fast-endpoints.com/)
-- [OpenAPI support for FastEndpoints](https://fast-endpoints.com/docs/swagger-support)
-- [FastEndpoints recommends xUnit, WebApplicationFactory, and FluentAssertions for unit and integration testing](https://fast-endpoints.com/docs/integration-unit-testing)
-- [FastEndpoints tutorial](https://dev.to/djnitehawk/building-rest-apis-in-net-6-the-easy-way-3h0d)
-
-# Chapter 12 - Web Service Integration Testing
+# Chapter 11 - Integration Testing Web Services
 
 ## Unit Testing and Mocking
 
@@ -288,11 +272,30 @@ The official announcement links are useful because they describe the most import
 
 ## Integration Testing
 
+- [Integration tests in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests)
 - [Real-world regression example](https://github.com/markjprice/cs11dotnet7/blob/main/docs/errata/errata.md#page-178---reviewing-project-packages)
 - [Dev tunnels with ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/test/dev-tunnels)
-- [Integration tests in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests)
+- [Dev Tunnels: A Game Changer for Mobile Developers](https://devblogs.microsoft.com/dotnet/dev-tunnels-a-game-changer-for-mobile-developers/)
 
-# Chapter 13 - Web Content Management Using Umbraco
+# Chapter 12 - Building Web Services Using ASP.NET Core OData
+
+- [OData - the best way to REST](https://www.odata.org/)
+- [Welcome to OData](https://learn.microsoft.com/en-us/odata/overview)
+- [OData reference](https://learn.microsoft.com/en-us/dotnet/api/overview/odata-dotnet/)
+- [OData DevBlog](https://devblogs.microsoft.com/odata/)
+- [$compute and $search in ASP.NET Core OData 8](https://devblogs.microsoft.com/odata/compute-and-search-in-asp-net-core-odata-8/)
+- [The Future of OData NxT (Neo)](https://devblogs.microsoft.com/odata/the-future-of-odata-odata-nxt/)
+- [API versioning extension with ASP.NET Core OData 8](https://devblogs.microsoft.com/odata/api-versioning-extension-with-asp-net-core-odata-8/)
+
+# Chapter 13 - Building Web Services Using FastEndpoints
+
+- [TechEmpower benchmarks](https://fast-endpoints.com/benchmarks)
+- [Official documentation for FastEndpoints](https://fast-endpoints.com/)
+- [OpenAPI support for FastEndpoints](https://fast-endpoints.com/docs/swagger-support)
+- [FastEndpoints recommends xUnit, WebApplicationFactory, and FluentAssertions for unit and integration testing](https://fast-endpoints.com/docs/integration-unit-testing)
+- [FastEndpoints tutorial](https://dev.to/djnitehawk/building-rest-apis-in-net-6-the-easy-way-3h0d)
+
+# Chapter 14 - Web Content Management Using Umbraco CMS
 
 ## Umbraco CMS
 - [Umbraco CMS documentation](https://docs.umbraco.com/umbraco-cms)
@@ -317,7 +320,7 @@ The official announcement links are useful because they describe the most import
 - [Orchard Core](http://orchardcore.net/)
 - [OSS Spotlight - Build websites with a modern ASP.NET Core CMS – Orchard Core](https://www.youtube.com/watch?v=cKhAVWm845o)
 
-# Chapter 14 - Customizing and Extending Umbraco
+# Chapter 15 - Customizing and Extending Umbraco CMS
 
 - [Umbraco CMS scheduled jobs](https://docs.umbraco.com/umbraco-cms/reference/scheduling)
 - [UmbracoContext helper](https://docs.umbraco.com/umbraco-cms/reference/querying/umbraco-context)
@@ -330,4 +333,3 @@ The official announcement links are useful because they describe the most import
 - [TypeScript documentation](https://www.typescriptlang.org/docs/)
 - [Lit documentation](https://lit.dev/docs/)
 - [Tutorials about customizing the Umbraco editing experience](https://docs.umbraco.com/umbraco-cms/tutorials/overview#customize-the-editingexperience)
-- 
