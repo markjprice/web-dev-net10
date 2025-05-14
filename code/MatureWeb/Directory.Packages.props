@@ -1,16 +1,16 @@
 <Project>
 
-  <!--Last updated package versions: April 24, 2025.-->
+  <!--Last updated package versions: May 14, 2025.-->
 
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <MicrosoftPackageVersion>10.0.0</MicrosoftPackageVersion>
     
     <!--Temporary package version numbers.-->
-    <EFCore10>10.0.0-preview.3.25171.6</EFCore10>
-    <AspNetCore10>10.0.0-preview.3.25172.1</AspNetCore10>
-    <Aspire>9.2.0</Aspire>
-    <OpenTelemetry>1.11.1</OpenTelemetry>
+    <EFCore10>10.0.0-preview.4.25258.110</EFCore10>
+    <AspNetCore10>10.0.0-preview.4.25258.110</AspNetCore10>
+    <Aspire>9.2.1</Aspire>
+    <OpenTelemetry>1.12.0</OpenTelemetry>
   </PropertyGroup>
   
   <ItemGroup Label="For EF Core.">
@@ -25,14 +25,14 @@
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.0-preview-25107-0" />
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.2" />
-    <PackageVersion Include="Microsoft.Playwright" Version="1.51.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="$(AspNetCore10)" />
+    <PackageVersion Include="Microsoft.Playwright" Version="1.52.0" />
   </ItemGroup>
   
   <ItemGroup Label="For ASP.NET Core websites.">
     <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(AspNetCore10)" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(AspNetCore10)" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="$(AspNetCore10)" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="$(AspNetCore10)" />
   </ItemGroup>
 
   <ItemGroup Label="For deployment.">
@@ -41,7 +41,7 @@
 
   <ItemGroup Label="For .NET Aspire.">
     <PackageVersion Include="Aspire.Hosting.AppHost" Version="$(Aspire)" />
-    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.4.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.5.0" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="$(Aspire)" />
     <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="$(OpenTelemetry)" />
     <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="$(OpenTelemetry)" />
@@ -51,22 +51,22 @@
   </ItemGroup>
 
   <ItemGroup Label="For caching.">
-    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.4.0" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.5.0" />
   </ItemGroup>
 
   <ItemGroup Label="For ASP.NET Core web services.">
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="$(AspNetCore10)" />
-    <PackageVersion Include="NSwag.MSBuild" Version="14.3.0" />
+    <PackageVersion Include="NSwag.MSBuild" Version="14.4.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(AspNetCore10)" />
-    <PackageVersion Include="Microsoft.AspNetCore.OData" Version="9.3.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.OData" Version="9.3.1" />
   </ItemGroup>
   
   <ItemGroup Label="For FastEndpoints web services.">
-    <PackageVersion Include="FastEndpoints" Version="6.1.0-beta.6" />
+    <PackageVersion Include="FastEndpoints" Version="6.2.0-beta.2" />
   </ItemGroup>
   
   <ItemGroup Label="For Umbraco CMS.">
-    <PackageVersion Include="Umbraco.Cms" Version="14.3.4" />
+    <PackageVersion Include="Umbraco.Cms" Version="15.4.0" />
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
   </ItemGroup>
 
