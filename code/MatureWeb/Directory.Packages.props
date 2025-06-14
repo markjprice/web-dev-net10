@@ -1,15 +1,15 @@
 <Project>
 
-  <!--Last updated package versions: May 14, 2025.-->
+  <!--Last updated package versions: June 14, 2025.-->
 
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <MicrosoftPackageVersion>10.0.0</MicrosoftPackageVersion>
     
     <!--Temporary package version numbers.-->
-    <EFCore10>10.0.0-preview.4.25258.110</EFCore10>
-    <AspNetCore10>10.0.0-preview.4.25258.110</AspNetCore10>
-    <Aspire>9.2.1</Aspire>
+    <EFCore10>10.0.0-preview.5.25277.114</EFCore10>
+    <AspNetCore10>10.0.0-preview.5.25277.114</AspNetCore10>
+    <Aspire>9.3.1</Aspire>
     <OpenTelemetry>1.12.0</OpenTelemetry>
   </PropertyGroup>
   
@@ -22,9 +22,9 @@
   
   <ItemGroup Label="For testing.">
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.0-preview-25107-0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
     <PackageVersion Include="xunit" Version="2.9.3" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.2" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.1" />
     <PackageVersion Include="Microsoft.Playwright" Version="1.52.0" />
   </ItemGroup>
   
@@ -41,7 +41,7 @@
 
   <ItemGroup Label="For .NET Aspire.">
     <PackageVersion Include="Aspire.Hosting.AppHost" Version="$(Aspire)" />
-    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.5.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.6.0" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="$(Aspire)" />
     <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="$(OpenTelemetry)" />
     <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="$(OpenTelemetry)" />
@@ -51,22 +51,22 @@
   </ItemGroup>
 
   <ItemGroup Label="For caching.">
-    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.5.0" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.6.0" />
   </ItemGroup>
 
   <ItemGroup Label="For ASP.NET Core web services.">
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="$(AspNetCore10)" />
     <PackageVersion Include="NSwag.MSBuild" Version="14.4.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(AspNetCore10)" />
-    <PackageVersion Include="Microsoft.AspNetCore.OData" Version="9.3.1" />
+    <PackageVersion Include="Microsoft.AspNetCore.OData" Version="9.3.2" />
   </ItemGroup>
   
   <ItemGroup Label="For FastEndpoints web services.">
-    <PackageVersion Include="FastEndpoints" Version="6.2.0-beta.2" />
+    <PackageVersion Include="FastEndpoints" Version="6.2.0-beta.8" />
   </ItemGroup>
   
   <ItemGroup Label="For Umbraco CMS.">
-    <PackageVersion Include="Umbraco.Cms" Version="15.4.0" />
+    <PackageVersion Include="Umbraco.Cms" Version="16.0.0" />
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
   </ItemGroup>
 
