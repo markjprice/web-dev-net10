@@ -16,7 +16,12 @@ To make it easier to enter commands at the prompt, this page lists all commands 
 
 To clone the book's GitHub repository:
 ```shell
-git clone https://github.com/markjprice/web-dev-net9.git
+git clone https://github.com/markjprice/web-dev-net10.git
+```
+
+To pull down the latest container image for SQL Server 2025:
+```shell
+docker pull mcr.microsoft.com/mssql/server:2025-latest
 ```
 
 To pull down the latest container image for Azure SQL Edge:
@@ -24,9 +29,19 @@ To pull down the latest container image for Azure SQL Edge:
 docker pull mcr.microsoft.com/azure-sql-edge:latest
 ```
 
-To run the container image for Azure SQL Edge with a strong password and name the container `azuresqledge`:
+To run the container image for SQL Server with the following options:
+- Set an environment variable to use a strong password: `-e 'MSSQL_SA_PASSWORD=s3cret-Ninja'`
+- Set an environment variable to accept the license agreement: `-e 'ACCEPT_EULA=1'`
+- Set port mapping to `1433`
+- Name the container `nw-container`
 ```shell
-docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=s3cret-Ninja' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge
+docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=s3cret-Ninja' -p 1433:1433 --name nw-container -d mcr.microsoft.com/mssql/server:2025-latest
+```
+
+> Warning! If the license agreement is not accepted you will see a warning in the Docker logs for the container and it will stop. Try using double-quotes instead of single-quotes to set the environment variables:
+
+```shell
+docker run --cap-add SYS_PTRACE -e "ACCEPT_EULA=1" -e "MSSQL_SA_PASSWORD=s3cret-Ninja" -p 1433:1433 --name nw-container -d mcr.microsoft.com/mssql/server:2025-latest
 ```
 
 To ask Docker to list all containers, both running and stopped:
@@ -34,19 +49,19 @@ To ask Docker to list all containers, both running and stopped:
 docker ps -a
 ```
 
-To stop the `azuresqledge` container:
+To stop the `nw-container` container:
 ```shell
-docker stop azuresqledge
+docker stop nw-container
 ```
 
-To remove the `azuresqledge` container:
+To remove the `nw-container` container:
 ```shell
-docker rm azuresqledge
+docker rm nw-container
 ```
 
-To remove the azure-sql-edge image to release its disk space:
+To remove the SQL Server image to release its disk space:
 ```shell
-docker rmi mcr.microsoft.com/azure-sql-edge
+docker rmi mcr.microsoft.com/mssql/server:2025-latest
 ```
 
 To check if you have already installed `dotnet-ef` as a global tool:
@@ -74,7 +89,7 @@ To remove the tool:
 dotnet tool uninstall --global dotnet-ef
 ```
 
-> **Warning!** Make sure that the SQL Edge container is running because you are about to connect to the server and its Northwind database.
+> **Warning!** Make sure that the SQL Server container is running because you are about to connect to the server and its Northwind database.
 
 In the `Northwind.EntityModels` project folder (the folder that contains the `.csproj` project file), generate entity class models for all tables:
 ```shell
