@@ -5,15 +5,18 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <Net10>10.0.0-preview.5.25277.114</Net10>
+    <!-- EF Core Preview 5 packages have a bug that prevents dotnet-ef from scaffolding the models. 
+    Use Preview 4 packages for now.-->
+    <EFCore10>10.0.0-preview.4.25258.110</EFCore10>
     <Aspire>9.3.1</Aspire>
     <OpenTelemetry>1.12.0</OpenTelemetry>
   </PropertyGroup>
   
   <ItemGroup Label="For EF Core.">
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(Net10)" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="$(Net10)" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(Net10)" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(Net10)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(EFCore10)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="$(EFCore10)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(EFCore10)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(EFCore10)" />
   </ItemGroup>
   
   <ItemGroup Label="For testing.">
