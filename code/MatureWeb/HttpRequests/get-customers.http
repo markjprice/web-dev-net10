@@ -14,5 +14,5 @@ Accept: application/xml
 ### Get Alfreds Futterkiste
 GET {{base_address}}ALFKI
 
-### Get a non-existant customer
+### Get a non-existent customer
 GET {{base_address}}abcxy
