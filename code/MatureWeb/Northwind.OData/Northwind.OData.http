@@ -1,4 +1,4 @@
-@Northwind.OData_HostAddress = http://localhost:5236
+@Northwind.OData_HostAddress = http://localhost:5094
 
 GET {{Northwind.OData_HostAddress}}/weatherforecast/
 Accept: application/json

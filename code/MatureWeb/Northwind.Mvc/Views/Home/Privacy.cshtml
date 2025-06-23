@@ -30,22 +30,16 @@
 <p>
   <a asp-controller="Home" asp-action="Orders"
      class="btn btn-primary" role="button">Orders</a>
-
   <a asp-controller="Home" asp-protocol="https"
      class="btn btn-outline-primary" role="button">This Page</a>
-
   <a asp-controller="Home" asp-action="Orders" asp-route-id="ALFKI"
      class="btn btn-outline-primary" role="button">
     Orders for Alfreds Futterkiste
   </a>
-
   <a asp-controller="Home" asp-action="Orders" asp-route-country="Brazil"
      class="btn btn-outline-primary" role="button">Orders in Brazil</a>
-
   <a asp-controller="Home" asp-action="Orders" asp-fragment="endOfTable"
      class="btn btn-outline-primary">Orders (end of table)</a>
-
-<a asp-controller="Home" asp-action="Shipper" 
-    asp-all-route-data="@ViewData["shipper1"] as IDictionary<string, string>"
-    class="btn btn-outline-primary">Shipper</a>
+  <a asp-controller="Home" asp-action="Shipper" asp-all-route-data="@ViewData["shipper1"] as IDictionary<string, string>"
+     class="btn btn-outline-primary">Shipper</a>
 </p>

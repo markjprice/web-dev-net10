@@ -4,34 +4,31 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-Northwind.Mvc-5e247820-48b3-4206-8e9d-02fd01d27e73</UserSecretsId>
+    <UserSecretsId>aspnet-Northwind.Mvc-966a494a-d238-4d2f-9825-be90a198338e</UserSecretsId>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!--Microsoft.Build.Tasks.Core 17.7.2 has a known severoty vulnerability.
+    I expect this to be fixed by November so we will ignore it for now.-->
+    <NoWarn>NU1903</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Hybrid" />
+    <PackageReference Include="Refit" />
+    <PackageReference Include="Refit.HttpClientFactory" />
+  </ItemGroup>
 
   <ItemGroup Label="To simplify use of WriteLine.">
     <Using Include="System.Console" Static="true" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Hybrid" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MatureWeb.ServiceDefaults\MatureWeb.ServiceDefaults.csproj" />
     <ProjectReference Include="..\Northwind.DataContext\Northwind.DataContext.csproj" />
     <ProjectReference Include="..\Northwind.Repositories\Northwind.Repositories.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

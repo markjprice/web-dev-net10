@@ -1,0 +1,14 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model SupplierViewModel
+<div class="row">
+  <p>Are you sure that you want to delete this supplier?</p>
+  <form method="post">
+    @Html.AntiForgeryToken()
+    <div><input asp-for="Supplier.SupplierId" hidden /></div>
+    <div><input asp-for="Supplier.CompanyName" readonly /></div>
+    <div><input asp-for="Supplier.Country" readonly /></div>
+    <div><input asp-for="Supplier.Phone" readonly /></div>
+    <input type="submit" value="Delete" />
+    <a href="Suppliers">Cancel</a>
+  </form>
+</div>

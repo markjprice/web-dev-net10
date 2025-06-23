@@ -44,13 +44,16 @@ public class CustomerRepository : ICustomerRepository
     // Add to database using EF Core.
     EntityEntry<Customer> added =
       await _db.Customers.AddAsync(c);
+
     int affected = await _db.SaveChangesAsync();
+
     if (affected == 1)
     {
       // If saved to database then store in cache.
       await _cache.SetAsync(c.CustomerId, c);
       return c;
     }
+
     return null;
   }
 
@@ -59,7 +62,9 @@ public class CustomerRepository : ICustomerRepository
     c.CustomerId = c.CustomerId.ToUpper();
 
     _db.Customers.Update(c);
+
     int affected = await _db.SaveChangesAsync();
+
     if (affected == 1)
     {
       await _cache.SetAsync(c.CustomerId, c);
@@ -73,10 +78,13 @@ public class CustomerRepository : ICustomerRepository
     id = id.ToUpper();
 
     Customer? c = await _db.Customers.FindAsync(id);
+
     if (c is null) return null;
 
     _db.Customers.Remove(c);
+
     int affected = await _db.SaveChangesAsync();
+
     if (affected == 1)
     {
       await _cache.RemoveAsync(c.CustomerId);

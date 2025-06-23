@@ -1,16 +1,19 @@
-﻿using FastEndpoints; // To use Endpoint<TRequest, TResponse>.
+﻿using FastEndpoints; // To use Endpoint<TRequest, TResponse>
 using Northwind.EntityModels; // To use Customer.
 
 namespace Northwind.FastEndpoints.Endpoints;
+
+#region DTO for Request in CustomersEndpoint (Response is Customer[])
+
+public record CustomersRequest(string Country);
+
+#endregion
 
 public class CustomersEndpoint : Endpoint<CustomersRequest, Customer[]>
 {
   private readonly NorthwindContext _db;
 
-  public CustomersEndpoint(NorthwindContext db)
-  {
-    _db = db;
-  }
+  public CustomersEndpoint(NorthwindContext db) => _db = db;
 
   public override void Configure()
   {
@@ -34,5 +37,3 @@ public class CustomersEndpoint : Endpoint<CustomersRequest, Customer[]>
     await SendAsync(response, cancellation: ct);
   }
 }
-
-public record CustomersRequest(string Country);

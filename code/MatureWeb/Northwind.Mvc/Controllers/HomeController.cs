@@ -1,11 +1,11 @@
-using System.Diagnostics; // To use Activity.
-using Microsoft.AspNetCore.Mvc; // To use Controller, IActionResult.
-using Northwind.Mvc.Models; // To use ErrorViewModel.
-using Northwind.EntityModels; // To use NorthwindContext.
-using Microsoft.EntityFrameworkCore; // To use Include method.
 using Microsoft.AspNetCore.Authorization; // To use [Authorize].
-using Microsoft.Extensions.Caching.Memory; // To use IMemoryCache.
+using Microsoft.AspNetCore.Mvc; // To use Controller, IActionResult.
+using Microsoft.EntityFrameworkCore; // To use Include method.
 using Microsoft.Extensions.Caching.Distributed; // To use IDistributedCache.
+using Microsoft.Extensions.Caching.Memory; // To use IMemoryCache.
+using Northwind.EntityModels; // To use NorthwindContext.
+using Northwind.Mvc.Models; // To use ErrorViewModel.
+using System.Diagnostics; // To use Activity.
 using System.Text.Json; // To use JsonSerializer.
 
 namespace Northwind.Mvc.Controllers;
@@ -14,13 +14,10 @@ public class HomeController : Controller
 {
   private readonly ILogger<HomeController> _logger;
   private readonly NorthwindContext _db;
-
   private readonly IMemoryCache _memoryCache;
   private const string ProductKey = "PROD";
-
   private readonly IDistributedCache _distributedCache;
   private const string CategoriesKey = "CATEGORIES";
-
   private readonly IHttpClientFactory _clientFactory;
 
   public HomeController(ILogger<HomeController> logger,
@@ -35,28 +32,6 @@ public class HomeController : Controller
     _clientFactory = httpClientFactory;
   }
 
-  private async Task<List<Category>> GetCategoriesFromDatabaseAsync()
-  {
-    List<Category> cachedValue = await _db.Categories.ToListAsync();
-
-    DistributedCacheEntryOptions cacheEntryOptions = new()
-    {
-      // Allow readers to reset the cache entry's lifetime.
-      SlidingExpiration = TimeSpan.FromMinutes(1),
-
-      // Set an absolute expiration time for the cache entry.
-      AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(20),
-    };
-
-    byte[]? cachedValueBytes =
-      JsonSerializer.SerializeToUtf8Bytes(cachedValue);
-
-    await _distributedCache.SetAsync(CategoriesKey,
-      cachedValueBytes, cacheEntryOptions);
-
-    return cachedValue;
-  }
-
   [ResponseCache(Duration = DurationInSeconds.TenSeconds,
     Location = ResponseCacheLocation.Any)]
   public async Task<IActionResult> Index()
@@ -68,10 +43,30 @@ public class HomeController : Controller
     _logger.LogInformation("I am in the Index method of the HomeController.");
     */
 
+    HttpClient client = _clientFactory.CreateClient(
+      name: "Northwind.WebApi");
+
+    HttpRequestMessage request = new(
+      method: HttpMethod.Get, requestUri: "api/countries");
+
+    HttpResponseMessage response = await client.SendAsync(request);
+
+    string[]? countries = await response.Content
+      .ReadFromJsonAsync<string[]>();
+
+    if (countries is not null)
+    {
+      ViewData["Countries"] = countries;
+    }
+    else
+    {
+      _logger.LogWarning("No countries were returned from the web service.");
+    }
+
     // Try to get the cached value.
     List<Category>? cachedValue = null;
 
-    byte[]? cachedValueBytes = 
+    byte[]? cachedValueBytes =
       await _distributedCache.GetAsync(CategoriesKey);
 
     if (cachedValueBytes is null)
@@ -111,28 +106,21 @@ public class HomeController : Controller
     if (shipper1 is not null)
     {
       keyValuePairs = new()
-      {
-        { "ShipperId", shipper1.ShipperId.ToString() },
-        { "CompanyName", shipper1.CompanyName },
-        { "Phone", shipper1.Phone ?? string.Empty }
-      };
+    {
+      { "ShipperId", shipper1.ShipperId.ToString() },
+      { "CompanyName", shipper1.CompanyName },
+      { "Phone", shipper1.Phone ?? string.Empty }
+    };
     }
 
     ViewData["shipper1"] = keyValuePairs;
-
     return View();
   }
 
-  [ResponseCache(Duration = 0,
-    Location = ResponseCacheLocation.None,
-    NoStore = true)]
+  [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
   public IActionResult Error()
   {
-    return View(new ErrorViewModel
-    {
-      RequestId =
-      Activity.Current?.Id ?? HttpContext.TraceIdentifier
-    });
+    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
   }
 
   public async Task<IActionResult> ProductDetail(int? id,
@@ -147,7 +135,7 @@ public class HomeController : Controller
 
     // Try to get the cached product.
     if (!_memoryCache.TryGetValue($"{ProductKey}{id}",
-      out Product? model))
+       out Product? model))
     {
       // If the cached value is not found, get the value from the database.
       model = await _db.Products.Include(p => p.Category)
@@ -160,13 +148,11 @@ public class HomeController : Controller
 
       MemoryCacheEntryOptions cacheEntryOptions = new()
       {
-        SlidingExpiration = TimeSpan.FromSeconds(5),
+        SlidingExpiration = TimeSpan.FromSeconds(10),
         Size = 1 // product
       };
-
       _memoryCache.Set($"{ProductKey}{id}", model, cacheEntryOptions);
     }
-
     MemoryCacheStatistics? stats = _memoryCache.GetCurrentStatistics();
 
     _logger.LogInformation($"Memory cache. Total hits: {stats?
@@ -182,8 +168,7 @@ public class HomeController : Controller
     return View(); // The page with a form to submit.
   }
 
-  // This action method will handle POST requests.
-  [HttpPost]
+  [HttpPost] // This action method will handle POST requests.
   public IActionResult ModelBinding(Thing thing)
   {
     HomeModelBindingViewModel model = new(
@@ -192,160 +177,7 @@ public class HomeController : Controller
         .SelectMany(state => state.Errors)
         .Select(error => error.ErrorMessage)
     );
-
     return View(model); // Show the model bound thing.
-  }
-
-  // GET: /home/suppliers
-  public IActionResult Suppliers()
-  {
-    HomeSuppliersViewModel model = new(_db.Suppliers
-      .OrderBy(c => c.Country)
-      .ThenBy(c => c.CompanyName));
-
-    return View(model);
-  }
-
-  // GET: /home/editsupplier/{id}
-  public IActionResult EditSupplier(int? id)
-  {
-    Supplier? supplierInDb = _db.Suppliers.Find(id);
-
-    HomeSupplierViewModel model = new(
-      supplierInDb is null ? 0 : 1, supplierInDb);
-
-    // Views\Home\EditSupplier.cshtml
-    return View(model);
-  }
-
-  // POST: /home/editsupplier
-  // Body: JSON Supplier
-  // Updates an existing supplier.
-  [HttpPost]
-  [ValidateAntiForgeryToken]
-  public IActionResult EditSupplier(Supplier supplier)
-  {
-    int affected = 0;
-
-    if (ModelState.IsValid)
-    {
-      Supplier? supplierInDb = _db.Suppliers.Find(supplier.SupplierId);
-
-      if (supplierInDb is not null)
-      {
-        supplierInDb.CompanyName = supplier.CompanyName;
-        supplierInDb.Country = supplier.Country;
-        supplierInDb.Phone = supplier.Phone;
-
-        /*
-        // Other properties not in the HTML form.
-        supplierInDb.ContactName = supplier.ContactName;
-        supplierInDb.ContactTitle = supplier.ContactTitle;
-        supplierInDb.Address = supplier.Address;
-        supplierInDb.City = supplier.City;
-        supplierInDb.Region = supplier.Region;
-        supplierInDb.PostalCode = supplier.PostalCode;
-        supplierInDb.Fax = supplier.Fax;
-        */
-
-        affected = _db.SaveChanges();
-      }
-    }
-
-    HomeSupplierViewModel model = new(
-      affected, supplier);
-
-    if (affected == 0) // Supplier was not updated.
-    {
-      // Views\Home\EditSupplier.cshtml
-      return View(model);
-    }
-    else // Supplier was updated; show in table.
-    {
-      return RedirectToAction("Suppliers");
-    }
-  }
-
-  // GET: /home/deletesupplier/{id}
-  public IActionResult DeleteSupplier(int? id)
-  {
-    Supplier? supplierInDb = _db.Suppliers.Find(id);
-
-    HomeSupplierViewModel model = new(
-      supplierInDb is null ? 0 : 1, supplierInDb);
-
-    // Views\Home\DeleteSupplier.cshtml
-    return View(model);
-  }
-
-  // POST: /home/deletesupplier/{id}
-  // Removes an existing supplier.
-  [HttpPost("/home/deletesupplier/{id:int?}")]
-  [ValidateAntiForgeryToken]
-  // C# won't allow two methods with the same name and signature.
-  public IActionResult DeleteSupplierX(int? id)
-  {
-    int affected = 0;
-
-    Supplier? supplierInDb = _db.Suppliers.Find(id);
-
-    if (supplierInDb is not null)
-    {
-      _db.Suppliers.Remove(supplierInDb);
-      affected = _db.SaveChanges();
-    }
-
-    HomeSupplierViewModel model = new(
-      affected, supplierInDb);
-
-    if (affected == 0) // Supplier was not deleted.
-    {
-      // Views\Home\DeleteSupplier.cshtml
-      return View(model);
-    }
-    else
-    {
-      return RedirectToAction("Suppliers");
-    }
-  }
-
-  // GET: /home/addsupplier
-  public IActionResult AddSupplier()
-  {
-    HomeSupplierViewModel model = new(
-      0, new Supplier());
-
-    // Views\Home\AddSupplier.cshtml
-    return View(model);
-  }
-
-  // POST: /home/addsupplier
-  // Body: JSON Supplier
-  // Inserts a new supplier.
-  [HttpPost]
-  [ValidateAntiForgeryToken]
-  public IActionResult AddSupplier(Supplier supplier)
-  {
-    int affected = 0;
-
-    if (ModelState.IsValid)
-    {
-      _db.Suppliers.Add(supplier);
-      affected = _db.SaveChanges();
-    }
-
-    HomeSupplierViewModel model = new(
-      affected, supplier);
-
-    if (affected == 0) // Supplier was not added.
-    {
-      // Views\Home\AddSupplier.cshtml
-      return View(model);
-    }
-    else
-    {
-      return RedirectToAction("Suppliers");
-    }
   }
 
   public IActionResult ProductsThatCostMoreThan(decimal? price)
@@ -371,6 +203,21 @@ public class HomeController : Controller
 
     // We can override the search path convention.
     return View("Views/Home/CostlyProducts.cshtml", model);
+  }
+
+  public async Task<IActionResult> CategoryDetail(int? id)
+  {
+    if (!id.HasValue)
+    {
+      return BadRequest("You must pass a category ID in the route, for example, /Home/CategoryDetail/6");
+    }
+    Category? model = await _db.Categories.Include(p => p.Products)
+      .SingleOrDefaultAsync(p => p.CategoryId == id);
+    if (model is null)
+    {
+      return NotFound($"CategoryId {id} not found.");
+    }
+    return View(model); // Pass model to view and then return result.
   }
 
   public IActionResult Orders(
@@ -412,6 +259,27 @@ public class HomeController : Controller
     return Json(shipper);
   }
 
+  private async Task<List<Category>> GetCategoriesFromDatabaseAsync()
+  {
+    List<Category> cachedValue = await _db.Categories.ToListAsync();
+
+    DistributedCacheEntryOptions cacheEntryOptions = new()
+    {
+      // Allow readers to reset the cache entry's lifetime.
+      SlidingExpiration = TimeSpan.FromMinutes(1),
+      // Set an absolute expiration time for the cache entry.
+      AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(20),
+    };
+
+    byte[]? cachedValueBytes =
+      JsonSerializer.SerializeToUtf8Bytes(cachedValue);
+
+    await _distributedCache.SetAsync(CategoriesKey,
+      cachedValueBytes, cacheEntryOptions);
+
+    return cachedValue;
+  }
+
   public async Task<IActionResult> Customers(string country)
   {
     string uri;
@@ -419,12 +287,12 @@ public class HomeController : Controller
     if (string.IsNullOrEmpty(country))
     {
       ViewData["Title"] = "All Customers Worldwide";
-      uri = "api/customers";
+      uri = "api/v1/customers";
     }
     else
     {
       ViewData["Title"] = $"Customers in {country}";
-      uri = $"api/customers/?country={country}";
+      uri = $"api/v1/customers/?country={country}";
     }
 
     HttpClient client = _clientFactory.CreateClient(

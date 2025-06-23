@@ -7,11 +7,15 @@ namespace Northwind.EntityModels;
 
 public partial class NorthwindContext : DbContext
 {
+#pragma warning disable CS8618
   public NorthwindContext()
+#pragma warning restore CS8618
   {
   }
 
+#pragma warning disable CS8618
   public NorthwindContext(DbContextOptions<NorthwindContext> options)
+#pragma warning restore CS8618
       : base(options)
   {
   }

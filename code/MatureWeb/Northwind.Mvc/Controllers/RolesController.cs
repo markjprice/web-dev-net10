@@ -11,7 +11,7 @@ public class RolesController : Controller
   private readonly UserManager<IdentityUser> _userManager;
   private readonly ILogger<RolesController> _logger;
 
-  public RolesController(ILogger<RolesController> logger, 
+  public RolesController(ILogger<RolesController> logger,
     RoleManager<IdentityRole> roleManager,
     UserManager<IdentityUser> userManager)
   {
@@ -26,6 +26,7 @@ public class RolesController : Controller
     {
       await _roleManager.CreateAsync(new IdentityRole(AdminRole));
     }
+
     IdentityUser? user = await _userManager.FindByEmailAsync(UserEmail);
 
     if (user == null)

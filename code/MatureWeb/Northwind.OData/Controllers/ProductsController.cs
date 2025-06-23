@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc; // To use IActionResult.
+using Microsoft.AspNetCore.OData.Deltas;
+using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query; // To use [EnableQuery].
 using Microsoft.AspNetCore.OData.Routing.Controllers; // ODataController
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore; // To use EntityState.
 using Northwind.EntityModels; // To use NorthwindContext.
 
 namespace Northwind.OData.Controllers;
@@ -52,15 +54,16 @@ public class ProductsController : ODataController
     return Created(product);
   }
 
-  public IActionResult Put([FromBody] Product product)
+  public IActionResult Put(int key, [FromBody] Product product)
   {
-    Product? productToUpdate = _db.Products.Find(product.ProductId);
+    Product? productToUpdate = _db.Products.Find(key);
 
     if (productToUpdate is null)
     {
-      return NotFound($"Product with id {product.ProductId} not found.");
+      return NotFound($"Product with id {key} not found.");
     }
 
+    // Individually set each property to avoid overwriting other properties.
     productToUpdate.ProductName = product.ProductName;
     productToUpdate.SupplierId = product.SupplierId;
     productToUpdate.CategoryId = product.CategoryId;
@@ -72,7 +75,7 @@ public class ProductsController : ODataController
     productToUpdate.Discontinued = product.Discontinued;
 
     _db.SaveChanges();
-    return Ok(product);
+    return Updated(product);
   }
 
   public IActionResult Delete(int key)
@@ -88,5 +91,21 @@ public class ProductsController : ODataController
     _db.SaveChanges();
 
     return NoContent();
+  }
+
+  public async Task<IActionResult> Patch(int key, [FromBody] Delta<Product> patch)
+  {
+    if (!ModelState.IsValid)
+      return BadRequest(ModelState);
+
+    Product? existingProduct = await _db.Products.FindAsync(key);
+    if (existingProduct is null)
+      return NotFound();
+
+    patch.Patch(existingProduct); // Apply changes.
+
+    _db.SaveChanges();
+
+    return Updated(existingProduct); // Returns 200 with updated entity.
   }
 }

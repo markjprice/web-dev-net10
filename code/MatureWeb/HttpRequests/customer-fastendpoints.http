@@ -1,0 +1,50 @@
+### Configure a variable for the web service base address.
+@base_address = https://localhost:5131/customers/
+
+### Make a GET request for all UK customers.
+GET {{base_address}}uk
+
+### Make a POST request to the base address.
+POST {{base_address}}
+Content-Type: application/json
+
+{
+  "customerID": "XYZAB",
+  "companyName": "XYZ Corp",
+  "contactName": "Jill Takodo",
+  "contactTitle": "Ms",
+  "address": "St James Street",
+  "city": "Brighton",
+  "region": "West Sussex",
+  "postalCode": "BN1 4AH",
+  "country":  "UK",
+  "phone": "(0) 794 3490 2365"
+}
+
+### Make a PUT request to the base address.
+PUT {{base_address}}xyzab
+Content-Type: application/json
+
+{
+  "customerID": "XYZAB",
+  "companyName": "XYZ Corp",
+  "contactName": "Joe",
+  "contactTitle": "Ms",
+  "address": "St James Street",
+  "city": "Brighton",
+  "region": "West Sussex",
+  "postalCode": "BN1 4AH",
+  "country":  "UK",
+  "phone": "(0) 794 3490 2365"
+}
+
+### Make a PATCH request to the base address.
+PATCH {{base_address}}xyzab
+Content-Type: application/json-patch+json
+
+[
+  { "op": "replace", "path": "/ContactName", "value": "Maria Muller" }
+]
+
+### Delete the customer with ID XYZAB.
+DELETE https://localhost:5131/customers/xyzab

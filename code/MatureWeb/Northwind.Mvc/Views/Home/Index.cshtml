@@ -1,5 +1,4 @@
 ﻿@model HomeIndexViewModel
-
 @{
   ViewData["Title"] = "Home Page";
   string currentItem = "";
@@ -7,7 +6,9 @@
 
 <div class="text-center">
   <h1 class="display-4">Welcome</h1>
+
   <p class="alert alert-primary">@DateTime.Now.ToLongTimeString()</p>
+
   <div class="row">
     <div class="col">
       <h2>Live</h2>
@@ -19,31 +20,22 @@
     <div class="col">
       <h2>Cached</h2>
       <p class="alert alert-secondary">
-        <cache expires-after ="@TimeSpan.FromSeconds(10)">
+        <cache expires-after="@TimeSpan.FromSeconds(10)">
           UTC: @DateTime.UtcNow.ToLongDateString() at
           @DateTime.UtcNow.ToLongTimeString()
         </cache>
       </p>
     </div>
   </div>
+
   <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-  <h3>Query products by price</h3>
-  <form asp-action="ProductsThatCostMoreThan" method="GET">
-    <input name="price" placeholder="Enter a product price" data-testid="price" />
-    <input type="submit" data-testid="submit_price" />
-  </form>
-  <h3>Query customers from a service</h3>
-  <form asp-action="Customers" method="get">
-    <input name="country" placeholder="Enter a country" />
-    <input type="submit" />
-  </form>
 </div>
 
 @if (Model is not null)
 {
   <div id="categories" class="carousel slide" data-bs-ride="carousel"
        data-bs-interval="3000" data-keyboard="true">
-    <ol class="carousel-indicators">
+    <ul class="carousel-indicators">
       @for (int c = 0; c < Model.Categories.Count; c++)
       {
         if (c == 0)
@@ -57,8 +49,7 @@
         <li data-bs-target="#categories" data-bs-slide-to="@c"
             class="@currentItem"></li>
       }
-    </ol>
-
+    </ul>
     <div class="carousel-inner">
       @for (int c = 0; c < Model.Categories.Count; c++)
       {
@@ -77,8 +68,7 @@
             <h2>@Model.Categories[c].CategoryName</h2>
             <h3>@Model.Categories[c].Description</h3>
             <p>
-              <a class="btn btn-primary" href="/home/categorydetail/
-@Model.Categories[c].CategoryId">View</a>
+              <a class="btn btn-primary" href="/home/categorydetail/@Model.Categories[c].CategoryId">View</a>
             </p>
           </div>
         </div>
@@ -97,13 +87,41 @@
     </a>
   </div>
 }
-
 <div class="row">
   <div class="col-md-12">
     <h1>Northwind</h1>
     <p class="lead">
       We have had <span data-testid="visitor_count">@Model?.VisitorCount</span> visitors this month.
     </p>
+
+    <h3>Query products by price</h3>
+    <form asp-action="ProductsThatCostMoreThan" method="GET">
+      <input name="price" placeholder="Enter a product price" data-testid="price" />
+      <input type="submit" data-testid="submit_price" />
+    </form>
+
+    <h3>Query customers from a service</h3>
+    <form asp-action="Customers" method="get">
+      @{
+        string[]? countries = ViewData["Countries"] as string[];
+      }
+      @if (countries is null)
+      {
+        <input name="country" placeholder="Enter a country" />
+      }
+      else
+      {
+        <select name="country" class="form-select">
+          <option value="">Worldwide</option>
+          @foreach (string country in countries)
+          {
+            <option value="@country">@country</option>
+          }
+        </select>
+      }
+      <input type="submit" />
+    </form>
+
     @if (Model is not null)
     {
       <h2>Products</h2>

@@ -1,36 +1,12 @@
-using Microsoft.AspNetCore.OData; // To use AddOData.
-using Northwind.EntityModels; // To use AddNorthwindContext.
+using Northwind.OData.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddNorthwindContext();
+//builder.Services.AddControllers();
 
-builder.Services.AddControllers()
-  // Register OData models.
-  .AddOData(options => options
-
-    // GET /catalog and /catalog/$metadata
-    .AddRouteComponents(routePrefix: "catalog",
-      model: GetEdmModelForCatalog())
-
-    // GET /ordersystem and /ordersystem/$metadata
-    .AddRouteComponents(routePrefix: "ordersystem",
-      model: GetEdmModelForOrderSystem())
-
-    // GET /catalog/v1, /catalog/v2, and so on.
-    .AddRouteComponents(routePrefix: "catalog/v{version}",
-      model: GetEdmModelForCatalog())
-
-    // Enable query options:
-    .Select()       // $select for projection
-    .Expand()       // $expand to navigate to related entities
-    .Filter()       // $filter
-    .OrderBy()      // $orderby
-    .SetMaxTop(100) // $top
-    .Count()        // $count
-  );
+builder.Services.AddNorthwindODataControllers();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();

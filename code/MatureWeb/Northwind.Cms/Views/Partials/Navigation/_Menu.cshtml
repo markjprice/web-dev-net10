@@ -1,0 +1,16 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@{
+  IPublishedContent root = Model.Root(); // Usually "Home".
+
+  IEnumerable<IPublishedContent> level1Items =
+    root.Children().Where(x => x.IsVisible());
+}
+@if (level1Items is not null)
+{
+  foreach (IPublishedContent item in level1Items)
+  {
+    <a class="nav-link active" aria-current="page" 
+       href="@item.Url()">@item.Name</a>
+  }
+}

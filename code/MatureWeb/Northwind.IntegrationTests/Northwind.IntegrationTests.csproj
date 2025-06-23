@@ -16,11 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Using Include="Xunit" />
+    <ProjectReference Include="..\Northwind.WebApi\Northwind.WebApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Northwind.WebApi\Northwind.WebApi.csproj" />
+    <Using Include="Xunit" />
   </ItemGroup>
 
 </Project>

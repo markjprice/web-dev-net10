@@ -18,11 +18,11 @@
       @foreach (Customer customer in Model)
       {
         <tr>
-          <td>@customer.CustomerId</td>
+          <td><a href="/customers/detail/@customer.CustomerId">@customer.CustomerId</a></td>
           <td>@customer.CompanyName</td>
           <td>@customer.ContactName</td>
           <td>@customer.City</td>
-          <td>@customer.Country</td>
+          <td><a href="/customers?country=@customer.Country">@customer.Country</a></td>
         </tr>
       }
     </tbody>

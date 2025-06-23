@@ -4,6 +4,15 @@
 }
 <div class="text-center">
   <h1 class="display-4">@ViewData["Title"]</h1>
+  <h2>Northwind Options</h2>
+  <div class="alert alert-danger" role="alert">
+    <dl>
+      <dt>Site title</dt>
+      <dd>@Model.Options.SiteTitle</dd>
+      <dt>Pager size</dt>
+      <dd>@Model.Options.PagerSize</dd>
+    </dl>
+  </div>
   <h2>Providers</h2>
   <table class="table table-bordered table-striped">
     <thead>
@@ -27,14 +36,6 @@
       <dd>@Model.OutputCachingLoggingLevel</dd>
       <dt>Identity connection string</dt>
       <dd>@Model.IdentityConnectionString</dd>
-    </dl>
-  </div>
-  <div class="alert alert-danger" role="alert">
-    <dl>
-      <dt>Site title</dt>
-      <dd>@Model.Options.SiteTitle</dd>
-      <dt>Pager size</dt>
-      <dd>@Model.Options.PagerSize</dd>
     </dl>
   </div>
   <dl>

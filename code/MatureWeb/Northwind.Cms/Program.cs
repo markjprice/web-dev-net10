@@ -1,6 +1,3 @@
-using Umbraco.Cms.Core.Models.PublishedContent;
-using Umbraco.Cms.Web.Common;
-
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.CreateUmbracoBuilder()

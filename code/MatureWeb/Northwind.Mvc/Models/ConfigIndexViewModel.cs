@@ -1,8 +1,11 @@
-﻿namespace Northwind.Mvc.Models;
+﻿using Northwind.Mvc.Options;
+
+namespace Northwind.Mvc.Models;
 
 public record ConfigIndexViewModel(
-  IEnumerable<string?> Providers,
-  IDictionary<string, string?> Settings,
+ IEnumerable<string?> Providers,
+ IDictionary<string, string?> Settings,
   string OutputCachingLoggingLevel,
   string IdentityConnectionString,
-  NorthwindOptions Options);
+  NorthwindOptions Options
+);

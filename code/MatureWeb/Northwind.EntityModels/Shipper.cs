@@ -9,11 +9,11 @@ namespace Northwind.EntityModels;
 public partial class Shipper
 {
   [Key]
-  [Display(Name = "Shipper ID")]
+  [Display(Name = "Shipper ID")] // Used by the Label Tag Helper.
   public int ShipperId { get; set; }
 
   [StringLength(40)]
-  [Display(Name = "Company Name")]
+  [Display(Name = "Company Name")] // Used by the Label Tag Helper.
   public string CompanyName { get; set; } = null!;
 
   [StringLength(24)]

@@ -28,31 +28,30 @@
     var baseaddress = "https://localhost:5091/";
 
     function xhr_load() {
-        console.log(this.responseText);
+      console.log(this.responseText);
+      var customers = JSON.parse(this.responseText);
+      var out = "";
+      var i;
 
-        var customers = JSON.parse(this.responseText);
+      for (i = 0; i < customers.length; i++) {
+        out += '<tr><td><a href="' + baseaddress + 'api/v1/customers/' +
+        customers[i].customerId + '">' +
+        customers[i].companyName + '</a></td><td>' +
+        customers[i].city + '</td><td>' +
+        customers[i].country + '</td></tr>';
+      }
 
-        var out = "";
-        var i;
-        for (i = 0; i < customers.length; i++) {
-            out += '<tr><td><a href="' + baseaddress + 'api/customers/' +
-                customers[i].customerId + '">' +
-                customers[i].companyName + '</a></td><td>' +
-                customers[i].city + '</td><td>' +
-                customers[i].country + '</td></tr>';
-        }
-        document.getElementById("tableBody").innerHTML = out;
+      document.getElementById("tableBody").innerHTML = out;
     }
 
     function getCustomersButton_click() {
-        xhr.open("GET", baseaddress + "api/customers/?country=" +
-          document.getElementById("country").value);
-
-        xhr.send();
+      xhr.open("GET", baseaddress + "api/v1/customers/?country=" +
+      document.getElementById("country").value);
+      xhr.send();
     }
 
     document.getElementById("getCustomersButton")
-        .addEventListener("click", getCustomersButton_click);
+      .addEventListener("click", getCustomersButton_click);
 
     var xhr = new XMLHttpRequest();
     xhr.addEventListener("load", xhr_load);

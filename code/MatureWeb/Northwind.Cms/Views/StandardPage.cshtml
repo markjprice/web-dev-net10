@@ -1,0 +1,11 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "northwindCms.cshtml";
+}
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-3">@Model.Value("name")</h1>
+    <p class="lead">@Model.Value("mainContent")</p>
+  </div>
+</div>

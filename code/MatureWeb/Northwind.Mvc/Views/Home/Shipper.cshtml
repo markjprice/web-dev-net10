@@ -1,43 +1,53 @@
 ﻿@model Shipper
 @{
-  ViewData["Title"] = "Shipper";
+  ViewData["Title"] = "Shippers";
 }
 <h1>@ViewData["Title"]</h1>
 <h2>Without Form Tag Helper</h2>
 <div>
   <div class="mb-3">
-    <label for="shipperIdInput" class="form-label">Shipper Id</label>
-    <input type="number" class="form-control" id="shipperIdInput"
-           value="@Model.ShipperId">
+    <label for="shipperIdInput" class="col-sm-2 col-form-label">Shipper Id</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="shipperIdInput"
+             value="@Model.ShipperId">
+    </div>
   </div>
   <div class="mb-3">
-    <label for="companyNameInput" class="form-label">Company Name</label>
-    <input class="form-control" id="companyNameInput"
-           value="@Model.CompanyName">
+    <label for="companyNameInput" class="col-sm-2 col-form-label">Company Name</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="companyNameInput"
+             value="@Model.CompanyName">
+    </div>
   </div>
   <div class="mb-3">
-    <label for="phoneInput" class="form-label">Phone</label>
-    <input class="form-control" id="phoneInput" value="@Model.Phone">
+    <label for="phoneInput" class="col-sm-2 col-form-label">Phone</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="phoneInput" value="@Model.Phone">
+    </div>
   </div>
 </div>
 <h2>With Form Tag Helper</h2>
-<form asp-controller="Home" asp-action="ProcessShipper"
-      class="form-horizontal" role="form">
-  <div>
-    <div class="mb-3">
-      <label asp-for="ShipperId" class="form-label"></label>
+<form asp-controller="Home" asp-action="ProcessShipper" role="form">
+  <div class="mb-3">
+    <label asp-for="ShipperId" class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-10">
       <input asp-for="ShipperId" class="form-control">
     </div>
-    <div class="mb-3">
-      <label asp-for="CompanyName" class="form-label"></label>
+  </div>
+  <div class="mb-3">
+    <label asp-for="CompanyName" class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-10">
       <input asp-for="CompanyName" class="form-control">
     </div>
-    <div class="mb-3">
-      <label asp-for="Phone" class="form-label"></label>
+  </div>
+  <div class="mb-3">
+    <label asp-for="Phone" class="col-sm-2 col-form-label"></label>
+    <div class="col-sm-10">
       <input asp-for="Phone" class="form-control">
     </div>
-    <div class="mb-3">
-      <input type="submit" class="form-control">
-    </div>
+  </div>
+
+  <div class="mb-3">
+    <input type="submit" class="form-control">
   </div>
 </form>

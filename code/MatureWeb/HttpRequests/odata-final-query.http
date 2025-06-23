@@ -1,5 +1,5 @@
 ### Configure a variable for the web service base address.
-@base_address = https://localhost:5101/catalog/
+@base_address = https://localhost:5121/catalog/
 
 ### Make a complex GET request for two products.
 GET {{base_address}}products

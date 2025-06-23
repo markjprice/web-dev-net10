@@ -6,10 +6,10 @@ namespace Northwind.WebApi.Controllers
   [Route("[controller]")]
   public class WeatherForecastController : ControllerBase
   {
-    private static readonly string[] Summaries = new[]
-    {
-          "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-      };
+    private static readonly string[] Summaries =
+    [
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    ];
 
     private readonly ILogger<WeatherForecastController> _logger;
 
@@ -22,6 +22,8 @@ namespace Northwind.WebApi.Controllers
     [HttpGet(Name = "GetWeatherForecastFiveDays")]
     public IEnumerable<WeatherForecast> Get()
     {
+      _logger.LogInformation("GetWeatherForecastFiveDays called.");
+
       return Get(days: 5); // Five-day forecast.
     }
 
@@ -29,6 +31,8 @@ namespace Northwind.WebApi.Controllers
     [HttpGet(template: "{days:int}", Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get(int days)
     {
+      _logger.LogInformation("GetWeatherForecast called with {days} days.", days);
+
       return Enumerable.Range(1, days).Select(index => new WeatherForecast
       {
         Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
