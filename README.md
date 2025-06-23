@@ -35,12 +35,13 @@ My author page on Goodreads: https://www.goodreads.com/author/show/14224500.Mark
 # Chapters and code projects
 
 **Introduction**
-- Chapter 1 Introducing Mature Web Development with .NET
-  - [code/MatureWeb/nuget.config](code/MatureWeb/nuget.config)
-  - [code/MatureWeb/Directory.Packages.props](code/MatureWeb/Directory.Packages.props)
+- Chapter 1 Introducing Real-World Web Development with .NET
   - [code/MatureWeb/Northwind.EntityModels](code/MatureWeb/Northwind.EntityModels)
   - [code/MatureWeb/Northwind.DataContext](code/MatureWeb/Northwind.DataContext)
   - [code/MatureWeb/Northwind.UnitTests](code/MatureWeb/Northwind.UnitTests)
+  - [code/MatureWeb/Directory.Packages.props](code/MatureWeb/Directory.Packages.props)
+  - [code/MatureWeb/nuget.config](code/MatureWeb/nuget.config)
+  - [code/MatureWeb/.mcp.json](code/MatureWeb/.mcp.json)
 
 **ASP.NET Core MVC**
 - Chapter 2 Building Websites Using ASP.NET Core MVC
@@ -54,6 +55,7 @@ My author page on Goodreads: https://www.goodreads.com/author/show/14224500.Mark
 - Chapter 7 Web User Interface Testing Using Playwright
   - [code/MatureWeb/Northwind.WebUITests](code/MatureWeb/Northwind.WebUITests)
 - Chapter 8 Configuring and Containerizing ASP.NET Core Projects
+  - [code/AspireStarter](code/AspireStarter)
 
 **Web Services**
 - Chapter 9 Building Web Services Using ASP.NET Core Web API
