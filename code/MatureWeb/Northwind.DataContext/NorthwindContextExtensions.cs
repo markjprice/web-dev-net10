@@ -20,7 +20,7 @@ public static class NorthwindContextExtensions
     {
       SqlConnectionStringBuilder builder = new();
 
-      builder.DataSource = "tcp:127.0.0.1,1433"; // SQL Edge in Docker.
+      builder.DataSource = "tcp:127.0.0.1,1433"; // SQL Server in container.
       builder.InitialCatalog = "Northwind";
       builder.TrustServerCertificate = true;
       builder.MultipleActiveResultSets = true;
