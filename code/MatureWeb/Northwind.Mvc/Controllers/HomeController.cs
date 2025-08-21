@@ -148,7 +148,7 @@ public class HomeController : Controller
 
       MemoryCacheEntryOptions cacheEntryOptions = new()
       {
-        SlidingExpiration = TimeSpan.FromSeconds(10),
+        SlidingExpiration = TimeSpan.FromSeconds(DurationInSeconds.TenSeconds),
         Size = 1 // product
       };
       _memoryCache.Set($"{ProductKey}{id}", model, cacheEntryOptions);
