@@ -8,8 +8,6 @@
   - [ASP.NET versions and features](#aspnet-versions-and-features)
   - [Help and learning](#help-and-learning)
 - [Chapter 2 - Building Websites Using ASP.NET Core MVC](#chapter-2---building-websites-using-aspnet-core-mvc)
-  - [General web development](#general-web-development)
-  - [ASP.NET Core](#aspnet-core)
 - [Chapter 3 - Model Binding, Validation, and Data Using EF Core](#chapter-3---model-binding-validation-and-data-using-ef-core)
   - [MVC Models](#mvc-models)
   - [EF Core and ASP.NET Core](#ef-core-and-aspnet-core)
@@ -83,6 +81,7 @@
 ## .NET
 - [Download .NET SDK](https://dotnet.microsoft.com/en-us/download)
 - [The convenience of .NET](https://devblogs.microsoft.com/dotnet/the-convenience-of-dotnet/)
+- [What's new in .NET 10](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10)
 - [What's new in .NET 9](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview)
 - [What's new in .NET 8](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8)
 - [.NET Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
@@ -110,22 +109,14 @@ The official announcement links are useful because they describe the most import
 ## Help and learning
 - [Microsoft Learn - Technical Documentation](https://learn.microsoft.com/en-us/docs/)
 - [Official .NET Blog written by the .NET engineering teams](https://devblogs.microsoft.com/dotnet/)
-- [Stack Overflow](https://stackoverflow.com/)
-- [Google Advanced Search](https://www.google.com/advanced_search)
-- [.NET Videos](https://dotnet.microsoft.com/en-us/learn/videos)
-- [Microsoft Learn Shows – .NET Videos](https://learn.microsoft.com/en-us/search/?terms=.net&category=Show)
 
 # Chapter 2 - Building Websites Using ASP.NET Core MVC
 
-## General web development
-- [Bootstrap](https://getbootstrap.com/)
-- [Free TLS/SSL certificates](https://letsencrypt.org)
-
-## ASP.NET Core
 - [ASP.NET Core fundamentals](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/)
 - [Static files in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/static-files)
 - [HttpContext class](https://learn.microsoft.com/en-us/dotnet/api/system.web.httpcontext)
 - [Kestrel web server](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel)
+- [Free TLS/SSL certificates](https://letsencrypt.org)
 - [ASP.NET Core hosting environments](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/environments)
 - [Performance Improvements in ASP.NET Core 8](https://devblogs.microsoft.com/dotnet/performance-improvements-in-aspnet-core-8/)
 - [Handle requests with controllers in ASP.NET Core MVC](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/actions)
@@ -154,6 +145,7 @@ The official announcement links are useful because they describe the most import
 - [Tag Helpers in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro)
 - [The `<partial>` tag helper](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/built-in/partial-tag-helper)
 - [VS Code Compact Folders feature](https://github.com/microsoft/vscode-docs/blob/vnext/release-notes/v1_41.md#compact-folders-in-explorer)
+- [Bootstrap](https://getbootstrap.com/)
 
 # Chapter 5 - Authentication and Authorization
 
