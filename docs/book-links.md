@@ -15,7 +15,7 @@
   - [ASP.NET Core MVC views](#aspnet-core-mvc-views)
   - [Razor syntax and layouts](#razor-syntax-and-layouts)
 - [Chapter 5 - Authentication and Authorization](#chapter-5---authentication-and-authorization)
-- [Chapter 6 - Performance Optimization Using Caching](#chapter-6---performance-optimization-using-caching)
+- [Chapter 6 - Performance and Scalability Optimization Using Caching](#chapter-6---performance-and-scalability-optimization-using-caching)
 - [Chapter 7 - Web User Interface Testing Using Playwright](#chapter-7---web-user-interface-testing-using-playwright)
 - [Chapter 8 - Configuring and Containerizing ASP.NET Core Projects](#chapter-8---configuring-and-containerizing-aspnet-core-projects)
   - [Endpoint routing](#endpoint-routing)
@@ -156,7 +156,7 @@ The official announcement links are useful because they describe the most import
 - [Introduction to authorization in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/introduction)
 - [Prevent Cross-Site Request Forgery (XSRF/CSRF) attacks in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/anti-request-forgery)
 
-# Chapter 6 - Performance Optimization Using Caching
+# Chapter 6 - Performance and Scalability Optimization Using Caching
 
 - [Hello HybridCache! Streamlining Cache Management for ASP.NET Core Applications](https://devblogs.microsoft.com/dotnet/hybrid-cache-is-now-ga/)
 - [Content Delivery Network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network)
