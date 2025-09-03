@@ -74,6 +74,9 @@ public class ProductsController : ODataController
     productToUpdate.ReorderLevel = product.ReorderLevel;
     productToUpdate.Discontinued = product.Discontinued;
 
+    // Or overwrite the entire object.
+    // _db.Entry(productToUpdate).State = EntityState.Modified;
+
     _db.SaveChanges();
     return Updated(product);
   }
