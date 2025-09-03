@@ -2,7 +2,7 @@
 @base_address = https://localhost:5131/customers/
 
 ### Make a GET request for all UK customers.
-GET {{base_address}}uk
+GET {{base_address}}UK
 
 ### Make a POST request to the base address.
 POST {{base_address}}
