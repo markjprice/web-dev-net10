@@ -6,8 +6,8 @@ namespace Northwind.Mvc.Controllers;
 
 public class ODataClientController : Controller
 {
-  protected readonly ILogger<ODataClientController> _logger;
-  protected readonly IHttpClientFactory _httpClientFactory;
+  private readonly ILogger<ODataClientController> _logger;
+  private readonly IHttpClientFactory _httpClientFactory;
 
   public ODataClientController(
     ILogger<ODataClientController> logger,
