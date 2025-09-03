@@ -7,7 +7,7 @@ namespace Northwind.OData.Controllers;
 
 public class CategoriesController : ODataController
 {
-  protected readonly NorthwindContext _db;
+  private readonly NorthwindContext _db;
 
   public CategoriesController(NorthwindContext db)
   {

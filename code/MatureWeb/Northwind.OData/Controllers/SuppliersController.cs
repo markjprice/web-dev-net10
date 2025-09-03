@@ -7,7 +7,7 @@ namespace Northwind.OData.Controllers;
 
 public class SuppliersController : ODataController
 {
-  protected readonly NorthwindContext _db;
+  private readonly NorthwindContext _db;
 
   public SuppliersController(NorthwindContext db)
   {

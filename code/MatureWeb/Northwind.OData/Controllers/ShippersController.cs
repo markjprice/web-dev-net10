@@ -7,11 +7,11 @@ namespace Northwind.OData.Services.Controllers;
 
 public class ShippersController : ODataController
 {
-  protected readonly NorthwindContext _db;
+  private readonly NorthwindContext _db;
 
   public ShippersController(NorthwindContext db)
   {
-    this._db = db;
+    _db = db;
   }
 
   [EnableQuery]
