@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.JsonPatch; // To use JsonPatchDocument<T>.
 using Northwind.EntityModels; // To use Customer.
 
+namespace Northwind.FastEndpoints.Endpoints;
+
 public class UpdateCustomerEndpoint : Endpoint<JsonPatchDocument<Customer>>
 {
   private readonly NorthwindContext _db;

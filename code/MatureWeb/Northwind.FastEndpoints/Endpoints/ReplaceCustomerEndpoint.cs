@@ -1,6 +1,8 @@
 ﻿using FastEndpoints; // To use Endpoint<TRequest, TResponse>.
 using Northwind.EntityModels; // To use Customer.
 
+namespace Northwind.FastEndpoints.Endpoints;
+
 public class ReplaceCustomerEndpoint : Endpoint<Customer, Customer>
 {
   private readonly NorthwindContext _db;
