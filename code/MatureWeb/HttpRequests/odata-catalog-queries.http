@@ -26,6 +26,11 @@ GET {{base_address}}categories(8)/
   ?$select=CategoryId,CategoryName
   &$expand=Products
 
+### Make a GET request for categories and a count of their related products.
+GET {{base_address}}categories/
+  ?$select=CategoryId,CategoryName
+  &$expand=Products($count=true)
+
 ### GET product 50 using version 2 of the implementation.
 GET {{base_address}}v2/products(50)
 
