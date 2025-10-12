@@ -7,7 +7,7 @@ Repository for the Packt Publishing book titled "Real-World Web Development with
 > **[FAQs](https://github.com/markjprice/markjprice/blob/main/FAQs.md)**
 
 - [Real-World Web Development with .NET 10, Second Edition](#real-world-web-development-with-net-10-second-edition)
-- [Free PDF of the book and how to contact the publisher Packt](#free-pdf-of-the-book-and-how-to-contact-the-publisher-packt)
+- [Free PDF/ePub of the book and how to contact the publisher Packt](#free-pdfepub-of-the-book-and-how-to-contact-the-publisher-packt)
 - [Author's books](#authors-books)
 - [Chapters and code projects](#chapters-and-code-projects)
 - [Code solutions for Visual Studio, VS Code, and Rider](#code-solutions-for-visual-studio-vs-code-and-rider)
@@ -18,9 +18,9 @@ Repository for the Packt Publishing book titled "Real-World Web Development with
 - [Book Cover](#book-cover)
 
 
-# Free PDF of the book and how to contact the publisher Packt
+# Free PDF/ePub of the book and how to contact the publisher Packt
 
-If you have purchased the paperback or Kindle edition, then you can request a free PDF copy and its supplementary content (like *Appendix - Answers to the Test Your Knowledge Questions* and Graphics Bundle PDF) at the following link: https://download.packt.com/free-ebook/9781835888926. If the book-specific link doesn't work, you can always use this general link that works for all Packt books: https://download.packt.com/free-ebook
+The next-gen online **Packt Reader** and a **free PDF/ePub copy** of this book are included with your purchase. Visit https://packtpub.com/unlock, then use the search bar to find this book by name. Double-check the edition shown to make sure you get the right one.
 
 For questions about book pricing, distribution, and so on, please contact the publisher Packt at the following email address: customercare@packt.com
 
