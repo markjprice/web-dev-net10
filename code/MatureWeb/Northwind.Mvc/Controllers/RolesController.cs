@@ -20,6 +20,22 @@ public class RolesController : Controller
     _userManager = userManager;
   }
 
+  private void LogIdentityResult(
+    IdentityResult result, string message)
+  {
+    if (result.Succeeded)
+    {
+      _logger.LogInformation(message);
+    }
+    else
+    {
+      foreach (IdentityError error in result.Errors)
+      {
+        _logger.LogError(error.Description);
+      }
+    }
+  }
+
   public async Task<IActionResult> Index()
   {
     if (!(await _roleManager.RoleExistsAsync(AdminRole)))
@@ -38,17 +54,8 @@ public class RolesController : Controller
       IdentityResult result = await _userManager.CreateAsync(
         user, "Pa$$w0rd");
 
-      if (result.Succeeded)
-      {
-        _logger.LogInformation($"User {user.UserName} created successfully.");
-      }
-      else
-      {
-        foreach (IdentityError error in result.Errors)
-        {
-          _logger.LogError(error.Description);
-        }
-      }
+      LogIdentityResult(result, 
+        $"User {user.UserName} created successfully.");
     }
 
     if (!user.EmailConfirmed)
@@ -59,17 +66,8 @@ public class RolesController : Controller
       IdentityResult result = await _userManager
         .ConfirmEmailAsync(user, token);
 
-      if (result.Succeeded)
-      {
-        _logger.LogInformation($"User {user.UserName} email confirmed successfully.");
-      }
-      else
-      {
-        foreach (IdentityError error in result.Errors)
-        {
-          _logger.LogError(error.Description);
-        }
-      }
+      LogIdentityResult(result,
+        $"User {user.UserName} email confirmed successfully.");
     }
 
     if (!(await _userManager.IsInRoleAsync(user, AdminRole)))
@@ -77,17 +75,8 @@ public class RolesController : Controller
       IdentityResult result = await _userManager
         .AddToRoleAsync(user, AdminRole);
 
-      if (result.Succeeded)
-      {
-        _logger.LogInformation($"User {user.UserName} added to {AdminRole} successfully.");
-      }
-      else
-      {
-        foreach (IdentityError error in result.Errors)
-        {
-          _logger.LogError(error.Description);
-        }
-      }
+      LogIdentityResult(result,
+        $"User {user.UserName} added to {AdminRole} successfully.");
     }
     return Redirect("/");
   }

@@ -1,28 +1,25 @@
 <Project>
 
-  <!--Last updated package versions: June 17, 2025.-->
+  <!--Last updated package versions: October 17, 2025.-->
 
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <Net10>10.0.0-preview.5.25277.114</Net10>
-    <!-- EF Core Preview 5 packages have a bug that prevents dotnet-ef from scaffolding the models. 
-    Use Preview 4 packages for now.-->
-    <EFCore10>10.0.0-preview.4.25258.110</EFCore10>
+    <Net10>10.0.0-rc.2.25502.107</Net10>
   </PropertyGroup>
   
   <ItemGroup Label="For EF Core.">
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(EFCore10)" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="$(EFCore10)" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(EFCore10)" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(EFCore10)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(Net10)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="$(Net10)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(Net10)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="$(Net10)" />
   </ItemGroup>
   
   <ItemGroup Label="For testing.">
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
     <PackageVersion Include="xunit" Version="2.9.3" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.1" />
-    <PackageVersion Include="Microsoft.Playwright" Version="1.52.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
+    <PackageVersion Include="Microsoft.Playwright" Version="1.55.0" />
     <PackageVersion Include="NSubstitute" Version="5.3.0" />
   </ItemGroup>
   
@@ -34,12 +31,12 @@
   </ItemGroup>
 
   <ItemGroup Label="For caching.">
-    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.6.0" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.10.0" />
   </ItemGroup>
 
   <ItemGroup Label="For ASP.NET Core web services.">
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="$(Net10)" />
-    <PackageVersion Include="Scalar.AspNetCore" Version="2.4.22" />
+    <PackageVersion Include="Scalar.AspNetCore" Version="2.9.0" />
     <PackageVersion Include="Refit" Version="8.0.0" />
     <PackageVersion Include="Refit.HttpClientFactory" Version="8.0.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(Net10)" />
@@ -48,18 +45,18 @@
   </ItemGroup>
 
   <ItemGroup Label="For OData web services.">
-    <PackageVersion Include="Microsoft.AspNetCore.OData" Version="9.3.2" />
+    <PackageVersion Include="Microsoft.AspNetCore.OData" Version="9.4.0" />
   </ItemGroup>
   
   <ItemGroup Label="For FastEndpoints web services.">
-    <PackageVersion Include="FastEndpoints" Version="6.2.0-beta.8" />
+    <PackageVersion Include="FastEndpoints" Version="7.0.1" />
     <PackageVersion Include="FluentValidation" Version="12.0.0" />
     <PackageVersion Include="Microsoft.AspNetCore.JsonPatch" Version="$(Net10)" />
     <PackageVersion Include="Microsoft.AspNetCore.JsonPatch.SystemTextJson" Version="$(Net10)" />
   </ItemGroup>
   
   <ItemGroup Label="For Umbraco CMS.">
-    <PackageVersion Include="Umbraco.Cms" Version="16.0.0" />
+    <PackageVersion Include="Umbraco.Cms" Version="16.3.1" />
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
   </ItemGroup>
 

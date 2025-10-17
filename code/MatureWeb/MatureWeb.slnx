@@ -1,0 +1,15 @@
+<Solution>
+  <Project Path="Mocking.BusinessLogic/Mocking.BusinessLogic.csproj" />
+  <Project Path="Mocking.BusinessLogicUnitTests/Mocking.BusinessLogicUnitTests.csproj" />
+  <Project Path="Northwind.Cms/Northwind.Cms.csproj" />
+  <Project Path="Northwind.DataContext/Northwind.DataContext.csproj" />
+  <Project Path="Northwind.EntityModels/Northwind.EntityModels.csproj" />
+  <Project Path="Northwind.FastEndpoints/Northwind.FastEndpoints.csproj" />
+  <Project Path="Northwind.IntegrationTests/Northwind.IntegrationTests.csproj" />
+  <Project Path="Northwind.Mvc/Northwind.Mvc.csproj" />
+  <Project Path="Northwind.OData/Northwind.OData.csproj" />
+  <Project Path="Northwind.Repositories/Northwind.Repositories.csproj" />
+  <Project Path="Northwind.UnitTests/Northwind.UnitTests.csproj" />
+  <Project Path="Northwind.WebApi/Northwind.WebApi.csproj" />
+  <Project Path="Northwind.WebUITests/Northwind.WebUITests.csproj" />
+</Solution>

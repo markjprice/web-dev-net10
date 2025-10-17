@@ -49,18 +49,26 @@ public class HomeController : Controller
     HttpRequestMessage request = new(
       method: HttpMethod.Get, requestUri: "api/countries");
 
-    HttpResponseMessage response = await client.SendAsync(request);
-
-    string[]? countries = await response.Content
-      .ReadFromJsonAsync<string[]>();
-
-    if (countries is not null)
+    try
     {
-      ViewData["Countries"] = countries;
+      HttpResponseMessage response = await client.SendAsync(request);
+
+      string[]? countries = await response.Content
+        .ReadFromJsonAsync<string[]>();
+
+      if (countries is not null)
+      {
+        ViewData["Countries"] = countries;
+      }
+      else
+      {
+        _logger.LogWarning("No countries were returned from the web service.");
+      }
     }
-    else
+    catch (Exception ex)
     {
-      _logger.LogWarning("No countries were returned from the web service.");
+      _logger.LogError(
+        $"Exception when calling countries web service: {ex.Message}");
     }
 
     // Try to get the cached value.

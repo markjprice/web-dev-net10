@@ -70,6 +70,7 @@ public class CustomerRepository : ICustomerRepository
       await _cache.SetAsync(c.CustomerId, c);
       return c;
     }
+
     return null;
   }
 
@@ -90,6 +91,7 @@ public class CustomerRepository : ICustomerRepository
       await _cache.RemoveAsync(c.CustomerId);
       return true;
     }
-    return null;
+
+    return false;
   }
 }
