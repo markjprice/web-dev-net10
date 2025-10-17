@@ -34,6 +34,6 @@ public class CustomersEndpoint : Endpoint<CustomersRequest, Customer[]>
 
     Customer[] response = query.ToArray();
 
-    await SendAsync(response, cancellation: ct);
+    await Send.OkAsync(response, cancellation: ct);
   }
 }

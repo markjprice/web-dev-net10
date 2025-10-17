@@ -29,7 +29,7 @@ public class UpdateCustomerEndpoint : Endpoint<JsonPatchDocument<Customer>>
     var customer = await _db.Customers.FindAsync([ id ], ct);
     if (customer is null)
     {
-      await SendNotFoundAsync(ct);
+      await Send.NotFoundAsync(ct);
       return;
     }
 
@@ -37,6 +37,6 @@ public class UpdateCustomerEndpoint : Endpoint<JsonPatchDocument<Customer>>
 
     await _db.SaveChangesAsync(ct);
 
-    await SendNoContentAsync(ct);
+    await Send.NoContentAsync(ct);
   }
 }

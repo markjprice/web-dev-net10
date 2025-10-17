@@ -23,7 +23,7 @@ public class ReplaceCustomerEndpoint : Endpoint<Customer, Customer>
 
     if (customer is null)
     {
-      await SendNotFoundAsync(ct);
+      await Send.NotFoundAsync(ct);
       return;
     }
 
@@ -39,6 +39,6 @@ public class ReplaceCustomerEndpoint : Endpoint<Customer, Customer>
     customer.Fax = req.Fax;
 
     await _db.SaveChangesAsync(ct);
-    await SendNoContentAsync(ct);
+    await Send.NoContentAsync(ct);
   }
 }

@@ -28,6 +28,6 @@ public class HelloEndpoint : Endpoint<HelloRequest, HelloResponse>
   {
     HelloResponse response = new($"Hello, {req.Name}. You're looking great for {req.Age}!");
 
-    await SendAsync(response, cancellation: ct);
+    await Send.OkAsync(response, cancellation: ct);
   }
 }

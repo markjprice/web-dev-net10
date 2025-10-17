@@ -36,6 +36,6 @@ public class GetCustomersV2 : Endpoint<CustomersRequest, CustomersResponseV2[]>
         c.Country ?? string.Empty))
       .ToArrayAsync(ct);
 
-    await SendAsync(result, cancellation: ct);
+    await Send.OkAsync(result, cancellation: ct);
   }
 }

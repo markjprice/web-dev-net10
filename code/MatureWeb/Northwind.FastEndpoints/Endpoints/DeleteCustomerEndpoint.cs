@@ -25,13 +25,13 @@ public class DeleteCustomerEndpoint : EndpointWithoutRequest
 
     if (customer is null)
     {
-      await SendNotFoundAsync(cancellation: ct);
+      await Send.NotFoundAsync(cancellation: ct);
       return;
     }
 
     _db.Customers.Remove(customer);
     await _db.SaveChangesAsync(ct);
 
-    await SendNoContentAsync(cancellation: ct);
+    await Send.NoContentAsync(cancellation: ct);
   }
 }

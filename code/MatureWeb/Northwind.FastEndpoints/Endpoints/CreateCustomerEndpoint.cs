@@ -1,5 +1,6 @@
 ﻿using FastEndpoints; // To use Endpoint<TRequest, TResponse>.
 using FluentValidation.Results; // To use ValidationResult.
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Northwind.EntityModels; // To use Customer.
 using Northwind.FastEndpoints.Validators; // To use CreateCustomerValidator.
 
@@ -26,13 +27,15 @@ public class CreateCustomerEndpoint : Endpoint<Customer, Customer>
     
     if (!validationResult.IsValid)
     {
-      await SendErrorsAsync(cancellation: ct);
+      await Send.ErrorsAsync(cancellation: ct);
       return;
     }
 
-    _db.Customers.Add(request);
+    EntityEntry<Customer> added = _db.Customers.Add(request);
     await _db.SaveChangesAsync(ct);
 
-    await SendAsync(request, statusCode: 201, cancellation: ct);
+    await Send.CreatedAtAsync(
+      $"/customers/{added.Entity.CustomerId}",
+      added.Entity, cancellation: ct);
   }
 }

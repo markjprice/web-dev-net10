@@ -34,6 +34,6 @@ public class GetCustomersV1 : Endpoint<CustomersRequest, CustomersResponseV1[]>
         c.CompanyName))
       .ToArrayAsync(ct);
 
-    await SendAsync(result, cancellation: ct);
+    await Send.OkAsync(result, cancellation: ct);
   }
 }
