@@ -75,8 +75,9 @@ My author page on Goodreads: https://www.goodreads.com/author/show/14224500.Mark
 
 **Appendix**
 - Appendix A, Answers to the Test Your Knowledge Questions
-- Appendix B, Setting Up Your Development Environment
-- Both are included in the free PDF bundle: https://download.packt.com/free-ebook/9781835888926.
+- [*Appendix B, Setting Up Your Development Environment*](docs/B31469_Appendix%20B.pdf)
+- [*Appendix C, Looking for help*](https://github.com/markjprice/markjprice/blob/main/articles/getting-help.md) and [PDF](docs/B31469_Appendix%20C.pdf)
+- Appendices are included with your purchase. Visit https://packtpub.com/unlock, then use the search bar to find this book by name. Double-check the edition shown to make sure you get the right one.
 
 # Code solutions for Visual Studio, VS Code, and Rider
 
