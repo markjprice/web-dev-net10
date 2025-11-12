@@ -29,10 +29,7 @@ If you do not have a Windows computer, then you can skip this section and contin
 
 Since October 2014, Microsoft has made a professional-quality edition of Visual Studio available to students, open-source contributors, and individuals for free. It is called **Community Edition**. Any of the editions are suitable for this book. If you have not already installed it, let's do so now:
 
-1.	Download the latest version of Visual Studio  from the following link: https://visualstudio.microsoft.com/downloads/.
-
-> **Visual Studio vNext**: At the time of writing, Visual Studio is version 17.12 and branded as Visual Studio 2022. I expect the next major version of Visual Studio to be version 18.0 and be branded as Visual Studio 2025. It is likely to be released in the first half of 2025, either February or May during the Build conference. Visual Studio 2025 will have mostly the same features as the 2022 edition although the user interface might move things around a bit.
-
+1.	Download the latest version of Visual Studio 2026 from the following link: https://visualstudio.microsoft.com/downloads/. Although Visual Studio 2022 should work fine with .NET 10 and the projects in this book, Microsoft and I recommend using Visual Studio 2026.
 2.	Run the installer to start the installation.
 3.	On the **Workloads** tab, select the following:
     - **ASP.NET and web development**.
@@ -41,7 +38,7 @@ Since October 2014, Microsoft has made a professional-quality edition of Visual 
 4.	Click **Install** and wait for the installer to acquire the selected software and install it.
 5.	When the installation is complete, click **Launch**.
 6.	The first time that you run Visual Studio, you will be prompted to sign in. If you have a Microsoft account, you can use that account. If you don't, then register for a new one at the following link: https://signup.live.com/.
-7.	The first time that you run Visual Studio, you will be prompted to configure your environment. For **Development Settings**, choose **Visual C#**. For the color theme, I chose **Blue**, but you can choose whatever tickles your fancy.
+7.	The first time that you run Visual Studio, you will be prompted to configure your environment. For **Development Settings**, choose **Visual C#**. For the color theme, I chose **Light**, but you can choose whatever tickles your fancy.
 8.	If you want to customize your keyboard shortcuts, navigate to **Tools** | **Options…**, and then select the **Keyboard** section.
 
 # Downloading and installing VS Code
@@ -51,7 +48,7 @@ Even if you plan to only use Visual Studio for development, I recommend that you
 Let's now download and install VS Code, the .NET SDK, and the C# Dev Kit extension:
 1.	Download and install either the Stable build or the Insiders edition of VS Code from the following link: https://code.visualstudio.com/.
 
-> **More Information**: If you need more help installing VS Code, you can read the official setup guide at the following link: https://code.visualstudio.com/docs/setup/setup-overview.
+> If you need more help installing VS Code, you can read the official setup guide at the following link: https://code.visualstudio.com/docs/setup/setup-overview.
 
 2.	Download and install the .NET SDK for version 9.0 from the following link: https://www.microsoft.com/net/download.
 3.	To install the **C# Dev Kit** extension using a user interface, you must first launch the VS Code application.
