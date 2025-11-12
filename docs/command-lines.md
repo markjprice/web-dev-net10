@@ -2,17 +2,17 @@
 
 To make it easier to enter commands at the prompt, this page lists all commands as a single line that can be copied and pasted.
 
-- [Chapter 1 Introducing Web Development with Controllers](#chapter-1-introducing-web-development-with-controllers)
+- [Chapter 1 Introducing Real-World Web Development Using .NET](#chapter-1-introducing-real-world-web-development-using-net)
 - [Chapter 2 Building Websites Using ASP.NET Core MVC](#chapter-2-building-websites-using-aspnet-core-mvc)
 - [Chapter 7 Web User Interface Testing Using Playwright](#chapter-7-web-user-interface-testing-using-playwright)
 - [Chapter 8 Configuring and Containerizing ASP.NET Core Projects](#chapter-8-configuring-and-containerizing-aspnet-core-projects)
 - [Chapter 9 Building Web Services Using ASP.NET Core Web API](#chapter-9-building-web-services-using-aspnet-core-web-api)
-- [Chapter 10 Building Web Services Using ASP.NET Core OData](#chapter-10-building-web-services-using-aspnet-core-odata)
-- [Chapter 11 Building Web Services Using FastEndpoints](#chapter-11-building-web-services-using-fastendpoints)
-- [Chapter 12 Web Service Integration Testing](#chapter-12-web-service-integration-testing)
-- [Chapter 13 Web Content Management Using Umbraco](#chapter-13-web-content-management-using-umbraco)
+- [Chapter 11 Testing and Debugging Web Services](#chapter-11-testing-and-debugging-web-services)
+- [Chapter 12 Building Web Services Using ASP.NET Core OData](#chapter-12-building-web-services-using-aspnet-core-odata)
+- [Chapter 13 Building Web Services Using FastEndpoints](#chapter-13-building-web-services-using-fastendpoints)
+- [Chapter 14 Web Content Management Using Umbraco](#chapter-14-web-content-management-using-umbraco)
 
-# Chapter 1 Introducing Web Development with Controllers
+# Chapter 1 Introducing Real-World Web Development Using .NET 
 
 To clone the book's GitHub repository:
 ```shell
@@ -34,11 +34,12 @@ To run the container image for SQL Server with the following options:
 - Set an environment variable to accept the license agreement: `-e 'ACCEPT_EULA=1'`
 - Set port mapping to `1433`
 - Name the container `nw-container`
+
 ```shell
 docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=s3cret-Ninja' -p 1433:1433 --name nw-container -d mcr.microsoft.com/mssql/server:2025-latest
 ```
 
-> Warning! If the license agreement is not accepted you will see a warning in the Docker logs for the container and it will stop. Try using double-quotes instead of single-quotes to set the environment variables:
+> **Warning!** If the license agreement is not accepted you will see a warning in the Docker logs for the container and it will stop. Try using double-quotes instead of single-quotes to set the environment variables:
 
 ```shell
 docker run --cap-add SYS_PTRACE -e "ACCEPT_EULA=1" -e "MSSQL_SA_PASSWORD=s3cret-Ninja" -p 1433:1433 --name nw-container -d mcr.microsoft.com/mssql/server:2025-latest
@@ -213,27 +214,7 @@ To print all the information for the ID that was assigned:
 dotnet user-jwts print f2d14dfa --show-all
 ```
 
-# Chapter 10 Building Web Services Using ASP.NET Core OData
-
-In the `MatureWeb` directory:
-```shell
-dotnet new webapi --use-controllers -o Northwind.OData
-```
-```shell
-dotnet sln add Northwind.OData
-```
-
-# Chapter 11 Building Web Services Using FastEndpoints
-
-In the `MatureWeb` directory:
-```shell
-dotnet new web -o Northwind.FastEndpoints
-```
-```shell
-dotnet sln add Northwind.FastEndpoints
-```
-
-# Chapter 12 Web Service Integration Testing
+# Chapter 11 Testing and Debugging Web Services
 
 Whenever you make changes to your models that affect the database schema, you should create a new migration:
 ```shell
@@ -294,11 +275,31 @@ In another command prompt or terminal window, start hosting a dev tunnel for por
 devtunnel host -p 8080
 ```
 
-# Chapter 13 Web Content Management Using Umbraco
+# Chapter 12 Building Web Services Using ASP.NET Core OData
 
-To install the Umbraco version 14.2 project templates:
+In the `MatureWeb` directory:
 ```shell
-dotnet new install Umbraco.Templates::14.2.0
+dotnet new webapi --use-controllers -o Northwind.OData
+```
+```shell
+dotnet sln add Northwind.OData
+```
+
+# Chapter 13 Building Web Services Using FastEndpoints
+
+In the `MatureWeb` directory:
+```shell
+dotnet new web -o Northwind.FastEndpoints
+```
+```shell
+dotnet sln add Northwind.FastEndpoints
+```
+
+# Chapter 14 Web Content Management Using Umbraco
+
+To install the Umbraco version 17 project templates:
+```shell
+dotnet new install Umbraco.Templates::17.0.0
 ```
 
 To confirm that the project templates are installed:
