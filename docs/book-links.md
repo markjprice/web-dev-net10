@@ -1,4 +1,4 @@
-- [Chapter 1 - Introducing Real-World Web Development with .NET](#chapter-1---introducing-real-world-web-development-with-net)
+- [Chapter 1 - Introducing Real-World Web Development Using .NET](#chapter-1---introducing-real-world-web-development-using-net)
   - [Set up your development environment](#set-up-your-development-environment)
   - [Additional Packt books](#additional-packt-books)
   - [Visual Studio](#visual-studio)
@@ -38,7 +38,7 @@
   - [Other .NET Content Management Systems](#other-net-content-management-systems)
 - [Chapter 15 - Customizing and Extending Umbraco CMS](#chapter-15---customizing-and-extending-umbraco-cms)
 
-# Chapter 1 - Introducing Real-World Web Development with .NET
+# Chapter 1 - Introducing Real-World Web Development Using .NET
 
 ## Set up your development environment
 - [Set up your development environment](https://github.com/markjprice/web-dev-net10/blob/main/docs/ch01-setupdev-env.md)
