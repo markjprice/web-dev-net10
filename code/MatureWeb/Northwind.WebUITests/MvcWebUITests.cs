@@ -4,30 +4,53 @@ using static Microsoft.Playwright.Assertions; // To use Expect.
 
 namespace Northwind.WebUITests;
 
-public class MvcWebUITests
+public class MvcWebUITests : IAsyncLifetime
 {
-  private IBrowser? _browser;
+  // Class lifetime objects.
+  private IPlaywright _pw = default!;
+  private IBrowser _browser = default!;
+
+  // Test lifetime objects.
   private IBrowserContext? _session;
   private IPage? _page;
   private IResponse? _response;
 
-  private async Task GotoHomePage(IPlaywright playwright)
+  public async Task InitializeAsync()
   {
-    _browser = await playwright.Chromium.LaunchAsync(
+    _pw = await Playwright.CreateAsync();
+    _browser = await _pw.Chromium.LaunchAsync(
       new BrowserTypeLaunchOptions { Headless = true });
+  }
+
+  public async Task DisposeAsync()
+  {
+    await _browser.DisposeAsync(); // or CloseAsync.
+    _pw.Dispose(); // IPlaywright implements IDisposable.
+  }
+
+  private async Task GotoHomePage()
+  {
     _session = await _browser.NewContextAsync();
     _page = await _session.NewPageAsync();
     _response = await _page.GotoAsync("https://localhost:5021/");
   }
 
+  private async void CleanUpSession()
+  {
+    if (_session is not null)
+    {
+      await _session.DisposeAsync();
+      _session = null;
+    }
+    _page = null;
+    _response = null;
+  }
+
   [Fact]
   public async Task HomePage_Title()
   {
-    // Arrange: Launch Chrome browser and navigate to home page.
-    // using to make sure Dispose is called at the end of the test.
-    using IPlaywright? playwright = await Playwright.CreateAsync();
-
-    await GotoHomePage(playwright);
+    // Arrange: Navigate to home page.
+    await GotoHomePage();
 
     if (_page is null)
     {
@@ -54,15 +77,15 @@ public class MvcWebUITests
         Environment.SpecialFolder.Desktop),
         $"homepage-{timestamp}.png")
     });
+
+    CleanUpSession();
   }
 
   [Fact]
   public async Task HomePage_VisitorCount()
   {
-    // Arrange: Launch Chrome browser and navigate to home page.
-    using IPlaywright? playwright = await Playwright.CreateAsync();
-
-    await GotoHomePage(playwright);
+    // Arrange: Navigate to home page.
+    await GotoHomePage();
 
     // The best way to select the element is to use its data-testid.
     ILocator? element = _page?.GetByTestId("visitor_count");
@@ -83,15 +106,15 @@ public class MvcWebUITests
     Assert.True(count >= 1 && count <= 1000);
 
     await Expect(element).ToBeVisibleAsync();
+
+    CleanUpSession();
   }
 
   [Fact]
   public async Task HomePage_FilterProducts()
   {
-    // Arrange: Launch Chrome browser and navigate to home page.
-    using IPlaywright? playwright = await Playwright.CreateAsync();
-
-    await GotoHomePage(playwright);
+    // Arrange: Navigate to home page.
+    await GotoHomePage();
 
     if (_page is null)
     {
@@ -122,5 +145,7 @@ public class MvcWebUITests
         Environment.SpecialFolder.Desktop),
         $"products-60-{timestamp}.png")
     });
+
+    CleanUpSession();
   }
 }
