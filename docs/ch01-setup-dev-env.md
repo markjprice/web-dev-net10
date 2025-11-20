@@ -50,7 +50,7 @@ Let's now download and install VS Code, the .NET SDK, and the C# Dev Kit extensi
 
 > If you need more help installing VS Code, you can read the official setup guide at the following link: https://code.visualstudio.com/docs/setup/setup-overview.
 
-2.	Download and install the .NET SDK for version 9.0 from the following link: https://www.microsoft.com/net/download.
+2.	Download and install the .NET SDK for version 10 from the following link: https://www.microsoft.com/net/download.
 3.	To install the **C# Dev Kit** extension using a user interface, you must first launch the VS Code application.
 4.	In VS Code, click the **Extensions** icon or navigate to **View** | **Extensions**.
 5.	C# Dev Kit is one of the most popular extensions available, so you should see it at the top of the list, or you can enter `C#` in the search box.
@@ -92,7 +92,7 @@ For example, to install the C# Dev Kit extension, enter the following at the com
 code --install-extension ms-dotnettools.csdevkit
 ```
 
-I have created PowerShell scripts to install and uninstall the VS Code extensions in the preceding table. You can find them at the following link: https://github.com/markjprice/web-dev-net9/tree/main/scripts/extension-scripts/. 
+I have created PowerShell scripts to install and uninstall the VS Code extensions in the preceding table. You can find them at the following link: https://github.com/markjprice/web-dev-net10/tree/main/scripts/extension-scripts/. 
 
 PowerShell scripts are cross-platform, as you can read about at the following link: https://learn.microsoft.com/en-us/powershell/scripting/overview.
 
