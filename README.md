@@ -2,7 +2,7 @@
 
 # Real-World Web Development with .NET 10, Second Edition
 
-Repository for the Packt Publishing book titled "Real-World Web Development with .NET 10" by Mark J. Price
+Repository for the Packt Publishing book titled "Real-World Web Development with .NET 10" by Mark J. Price. Published on December 3, 2025.
 
 > **[FAQs](https://github.com/markjprice/markjprice/blob/main/FAQs.md)**
 
@@ -74,7 +74,7 @@ My author page on Goodreads: https://www.goodreads.com/author/show/14224500.Mark
 - Chapter 15 Customizing and Extending Umbraco CMS
 
 **Appendix**
-- Appendix A, Answers to the Test Your Knowledge Questions
+- [*Appendix A, Answers to the Test Your Knowledge Questions*](docs/B31469_Appendix%20A.pdf)
 - [*Appendix B, Setting Up Your Development Environment*](docs/B31469_Appendix%20B.pdf)
 - [*Appendix C, Looking for help*](https://github.com/markjprice/markjprice/blob/main/articles/getting-help.md) and [PDF](docs/B31469_Appendix%20C.pdf)
 - Appendices are included with your purchase. Visit https://packtpub.com/unlock, then use the search bar to find this book by name. Double-check the edition shown to make sure you get the right one.
@@ -85,7 +85,7 @@ Visual Studio, VS Code + C# Dev Kit, and Rider can use the same code solution fi
 
 To use the solution file with VS Code:
 1. Install the **C# Dev Kit** extension.
-2. In VS Code, open the *folder* that contains a `.sln` solution file.
+2. In VS Code, open the *folder* that contains a `.slnx` solution file.
 3. Wait for the **SOLUTION EXPLORER** pane to appear in the **EXPLORER**. 
 
 > **Warning!** If you use multiple code editors to open the same solution, be aware that the build process can conflict. This is because Visual Studio has its own non-standard build server that is different from the standard build server used by .NET SDK CLI. My recommendation is to only have a solution open in one code editor at any time. 
@@ -93,13 +93,6 @@ To use the solution file with VS Code:
 You can "clean" a solution between opening it in different code editors, either using the `dotnet clean` command or manually. For example, after closing the solution in one code editor, I often delete the `bin` and `obj` folders before then opening in a different code editor.
 
 # Online content
-
-The appendix and color figures are available to download as PDFs:
-
-- [Appendix, Answers to the Test Your Knowledge Questions](docs/B31469_Appendix.pdf).
-- Color images of the screenshots/diagrams used in this book (coming January 2025).
-
-More content to support the book: 
 
 - [Common Mistakes, Improvements, and Errata aka list of corrections](docs/errata/README.md)
 - [Book support for .NET 11](docs/dotnet11.md)
