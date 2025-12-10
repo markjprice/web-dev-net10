@@ -4,6 +4,7 @@ To make it easier to enter commands at the prompt, this page lists all commands 
 
 - [Chapter 1 Introducing Real-World Web Development Using .NET](#chapter-1-introducing-real-world-web-development-using-net)
 - [Chapter 2 Building Websites Using ASP.NET Core MVC](#chapter-2-building-websites-using-aspnet-core-mvc)
+- [Chapter 5 Authentication and Authorization](#chapter-5-authentication-and-authorization)
 - [Chapter 7 Web User Interface Testing Using Playwright](#chapter-7-web-user-interface-testing-using-playwright)
 - [Chapter 8 Configuring and Containerizing ASP.NET Core Projects](#chapter-8-configuring-and-containerizing-aspnet-core-projects)
 - [Chapter 9 Building Web Services Using ASP.NET Core Web API](#chapter-9-building-web-services-using-aspnet-core-web-api)
@@ -17,6 +18,11 @@ To make it easier to enter commands at the prompt, this page lists all commands 
 To clone the book's GitHub repository:
 ```shell
 git clone https://github.com/markjprice/web-dev-net10.git
+```
+
+To update packages after making changes to CPM:
+```shell
+dotnet restore
 ```
 
 To pull down the latest container image for SQL Server 2025:
@@ -80,9 +86,9 @@ To install the latest version:
 dotnet tool install --global dotnet-ef
 ```
 
-To explicitly set a version, for example, to use a preview, add the `--version` switch:
+To explicitly set a version, for example, to use a preview of EF Core 11 during 2026, add the `--version` switch:
 ```shell
-dotnet tool update --global dotnet-ef --version 10.0-*
+dotnet tool update --global dotnet-ef --version 11.0-*
 ```
 
 To remove the tool:
@@ -97,6 +103,11 @@ In the `Northwind.EntityModels` project folder (the folder that contains the `.c
 dotnet ef dbcontext scaffold "Data Source=tcp:127.0.0.1,1433;Initial Catalog=Northwind;User Id=sa;Password=s3cret-Ninja;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --namespace Northwind.EntityModels --data-annotations
 ```
 
+To connect to a local SQL Server:
+```shell
+dotnet ef dbcontext scaffold "Data Source=.;Initial Catalog=Northwind;Integrated Security=true;TrustServerCertificate=true;" Microsoft.EntityFrameworkCore.SqlServer --namespace Northwind.EntityModels --data-annotations
+```
+
 To set the two environment variables at the command prompt or terminal.
 
 On Windows:
@@ -105,6 +116,13 @@ setx MY_SQL_USR <your_user_name>
 ```
 ```shell
 setx MY_SQL_PWD <your_password>
+```
+
+```shell
+setx MY_SQL_USR sa
+```
+```shell
+setx MY_SQL_PWD s3cret-Ninja
 ```
 
 On macOS and Linux:
@@ -127,9 +145,16 @@ Run database migrations:
 dotnet ef database update
 ```
 
+# Chapter 5 Authentication and Authorization
+
+To add ASP.NET Core Identity with its EF Core store provider to an existing project, use the following command:
+```shell
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
+```
+
 # Chapter 7 Web User Interface Testing Using Playwright
 
-If you’re running tests via the command line, you can specify the run settings :
+If you’re running tests via the command line, you can specify the run settings:
 ```shell
 dotnet test --settings Playwright.runsettings
 ```
@@ -147,34 +172,39 @@ dotnet new xunit -o Northwind.WebUITests
 dotnet sln add Northwind.WebUITests
 ```
 
-Navigate to `Northwind.WebUITests\bin\Debug\net9.0` and, at the command prompt or terminal, install browsers for Playwright to automate:
+Navigate to `Northwind.WebUITests\bin\Debug\net10.0` and, at the command prompt or terminal, install browsers for Playwright to automate:
 ```shell
 pwsh playwright.ps1 install
 ```
 
+If you get the error, `The command "pwsh" is not recognized.`, then the following command might fix the issue:
+```shell
+dotnet tool update --global PowerShell
+```
+
 Start the **Playwright Inspector** code generator for the MVC website:
 ```shell
-pwsh bin/Debug/net9.0/playwright.ps1 codegen https://localhost:5021/
+pwsh bin/Debug/net10.0/playwright.ps1 codegen https://localhost:5021/
 ```
 
 Start the **Playwright Inspector** code generator with emulation options like setting a view port size:
 ```shell
-pwsh bin/Debug/net9.0/playwright.ps1 codegen --viewport-size=800,600 https://localhost:5021/
+pwsh bin/Debug/net10.0/playwright.ps1 codegen --viewport-size=800,600 https://localhost:5021/
 ```
 
 Start the **Playwright Inspector** code generator to emulate a device:
 ```shell
-pwsh bin/Debug/net9.0/playwright.ps1 codegen --device="iPhone 13" https://localhost:5021/
+pwsh bin/Debug/net10.0/playwright.ps1 codegen --device="iPhone 13" https://localhost:5021/
 ```
 
 To remove the special browsers (chromium, firefox, and webkit) of the current Playwright installation:
 ```shell
-pwsh bin/Debug/net9.0/playwright.ps1 uninstall
+pwsh bin/Debug/net10.0/playwright.ps1 uninstall
 ```
 
 To remove browsers of other Playwright installations as well:
 ```shell
-pwsh bin/Debug/net9.0/playwright.ps1 uninstall --all
+pwsh bin/Debug/net10.0/playwright.ps1 uninstall --all
 ```
 
 # Chapter 8 Configuring and Containerizing ASP.NET Core Projects
