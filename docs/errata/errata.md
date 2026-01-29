@@ -1,4 +1,4 @@
-**Errata** (2 items)
+**Errata** (3 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/web-dev-net10/issues) or email me at markjprice (at) gmail.com.
 
@@ -6,6 +6,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 
 - [Page 23 - Configuring CPM for this book’s projects](#page-23---configuring-cpm-for-this-books-projects)
 - [Page 224 - Enabling role management and creating a role programmatically](#page-224---enabling-role-management-and-creating-a-role-programmatically)
+- [Page 295 - Testing page navigation and title verification](#page-295---testing-page-navigation-and-title-verification)
 
 
 # Page 23 - Configuring CPM for this book’s projects
@@ -46,3 +47,16 @@ if (user == null)
 ```
 
 Deleting the extra close brace removes the compile error.
+
+# Page 295 - Testing page navigation and title verification
+
+> Thanks to [zkazz](https://github.com/zkazz) for raising [this issue on January 29, 2026](https://github.com/markjprice/web-dev-net10/issues/4).
+
+In Step 7, the code for the `CleanUpSession` method ends with a `b` which prevents compilation. Delete the `b` to fix this:
+https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.WebUITests/MvcWebUITests.cs#L47
+
+Also in Step 7, in the `HomePage_Title` method, the statement `await GotoHomePage(playwright);` should be `await GotoHomePage();`
+https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.WebUITests/MvcWebUITests.cs#L53
+
+On page 296, Step 11 says, "in the `GotoHomePage` method", but it should say, "in the `InitializeAsync` method".
+https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.WebUITests/MvcWebUITests.cs#L22
