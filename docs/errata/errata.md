@@ -7,6 +7,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 23 - Configuring CPM for this book’s projects](#page-23---configuring-cpm-for-this-books-projects)
 - [Page 224 - Enabling role management and creating a role programmatically](#page-224---enabling-role-management-and-creating-a-role-programmatically)
 - [Page 295 - Testing page navigation and title verification](#page-295---testing-page-navigation-and-title-verification)
+- [Page 298 - Filling in input boxes and clicking elements](#page-298---filling-in-input-boxes-and-clicking-elements)
 
 
 # Page 23 - Configuring CPM for this book’s projects
@@ -60,3 +61,13 @@ https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.W
 
 On page 296, Step 11 says, "in the `GotoHomePage` method", but it should say, "in the `InitializeAsync` method".
 https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.WebUITests/MvcWebUITests.cs#L22
+
+# Page 298 - Filling in input boxes and clicking elements
+
+> Thanks to [zkazz](https://github.com/zkazz) for raising [this issue on January 30, 2026](https://github.com/markjprice/web-dev-net10/issues/5).
+
+In Step 4, in the `HomePage_VisitorCount` method, the statement `await GotoHomePage(playwright);` should be `await GotoHomePage();`, as shown in the following code:
+https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.WebUITests/MvcWebUITests.cs#L88
+
+On page 299, in Step 5, in the `HomePage_FilterProducts` method, the statement `await GotoHomePage(playwright);` should be `await GotoHomePage();`, as shown in the following code:
+https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.WebUITests/MvcWebUITests.cs#L117
