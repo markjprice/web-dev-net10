@@ -1,4 +1,4 @@
-**Errata** (4 items)
+**Errata** (5 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/web-dev-net10/issues) or email me at markjprice (at) gmail.com.
 
@@ -8,6 +8,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 224 - Enabling role management and creating a role programmatically](#page-224---enabling-role-management-and-creating-a-role-programmatically)
 - [Page 295 - Testing page navigation and title verification](#page-295---testing-page-navigation-and-title-verification)
 - [Page 298 - Filling in input boxes and clicking elements](#page-298---filling-in-input-boxes-and-clicking-elements)
+- [Page 331 - Implementing an anonymous inline delegate as middleware](#page-331---implementing-an-anonymous-inline-delegate-as-middleware)
 
 
 # Page 23 - Configuring CPM for this book’s projects
@@ -71,3 +72,10 @@ https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.W
 
 On page 299, in Step 5, in the `HomePage_FilterProducts` method, the statement `await GotoHomePage(playwright);` should be `await GotoHomePage();`, as shown in the following code:
 https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.WebUITests/MvcWebUITests.cs#L117
+
+# Page 331 - Implementing an anonymous inline delegate as middleware
+
+> Thanks to [zkazz](https://github.com/zkazz) for raising [this issue on February 2, 2026](https://github.com/markjprice/web-dev-net10/issues/6).
+
+In Step 1, the `UseRouteLoggerAndBonjourEndpoint` method is missing the statement `return app;` at the end which results in a compiler error:
+https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.Mvc/Extensions/WebApplicationExtensions.cs#L55
