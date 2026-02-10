@@ -37,4 +37,4 @@ If you find any mistakes in the first edition, *Real-World Web Development with 
 
 [**Book Links**](book-links.md): All links in the published book.
 
-[**First Edition's support for .NET 10**](dotnet10.md): How to use the 1st edition of this book with .NET 10 previews starting in February 2025.
+[**Support for .NET 11**](https://github.com/markjprice/markjprice/blob/main/articles/dotnet11.md): How to use the .NET 10 edition of this book with .NET 11 previews starting in February 2026.
