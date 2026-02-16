@@ -1,4 +1,4 @@
-**Errata** (5 items)
+**Errata** (6 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/web-dev-net10/issues) or email me at markjprice (at) gmail.com.
 
@@ -9,6 +9,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 295 - Testing page navigation and title verification](#page-295---testing-page-navigation-and-title-verification)
 - [Page 298 - Filling in input boxes and clicking elements](#page-298---filling-in-input-boxes-and-clicking-elements)
 - [Page 331 - Implementing an anonymous inline delegate as middleware](#page-331---implementing-an-anonymous-inline-delegate-as-middleware)
+- [Page 431 - Implementing Scalar](#page-431---implementing-scalar)
 
 
 # Page 23 - Configuring CPM for this book’s projects
@@ -79,3 +80,19 @@ https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.W
 
 In Step 1, the `UseRouteLoggerAndBonjourEndpoint` method is missing the statement `return app;` at the end which results in a compiler error:
 https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.Mvc/Extensions/WebApplicationExtensions.cs#L55
+
+# Page 431 - Implementing Scalar
+
+> Thanks to [zkazz](https://github.com/zkazz) for raising [this issue on February 16, 2026](https://github.com/markjprice/web-dev-net10/issues/7).
+
+In Step 3, I wrote, "In `Program.cs`, add statements so that when in the development environment, you enable Scalar’s API reference capability", but the code included extra `options` that are not needed and cause a compiler error. The statement can be simplified, as shown in the following code:
+```cs
+if (app.Environment.IsDevelopment())
+{
+  app.MapOpenApi();
+  app.MapScalarApiReference();
+}
+```
+
+The code was correct in the GitHub repository:
+https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.WebApi/Program.cs#L90
