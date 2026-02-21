@@ -1,4 +1,4 @@
-**Errata** (6 items)
+**Errata** (7 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/web-dev-net10/issues) or email me at markjprice (at) gmail.com.
 
@@ -10,6 +10,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 298 - Filling in input boxes and clicking elements](#page-298---filling-in-input-boxes-and-clicking-elements)
 - [Page 331 - Implementing an anonymous inline delegate as middleware](#page-331---implementing-an-anonymous-inline-delegate-as-middleware)
 - [Page 431 - Implementing Scalar](#page-431---implementing-scalar)
+- [Page 456 - Consuming web services using Refit](#page-456---consuming-web-services-using-refit)
 
 
 # Page 23 - Configuring CPM for this book’s projects
@@ -96,3 +97,13 @@ if (app.Environment.IsDevelopment())
 
 The code was correct in the GitHub repository:
 https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.WebApi/Program.cs#L90
+
+# Page 456 - Consuming web services using Refit
+
+> Thanks to [zkazz](https://github.com/zkazz) for raising [this issue on February 21, 2026](https://github.com/markjprice/web-dev-net10/issues/7).
+
+In Step 5, as well as importing the `Refit` namespace, you must import the `Northwind.Mvc.Clients` namespace to use `ICustomersClient`, as shown in the following code:
+```cs
+using Refit; // To use AddRefitClient and so on.
+using Northwind.Mvc.Clients; // To use ICustomersClient.
+```
