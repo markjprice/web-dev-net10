@@ -100,7 +100,7 @@ https://github.com/markjprice/web-dev-net10/blob/main/code/MatureWeb/Northwind.W
 
 # Page 456 - Consuming web services using Refit
 
-> Thanks to [zkazz](https://github.com/zkazz) for raising [this issue on February 21, 2026](https://github.com/markjprice/web-dev-net10/issues/7).
+> Thanks to [zkazz](https://github.com/zkazz) for raising [this issue on February 21, 2026](https://github.com/markjprice/web-dev-net10/issues/8).
 
 In Step 5, as well as importing the `Refit` namespace, you must import the `Northwind.Mvc.Clients` namespace to use `ICustomersClient`, as shown in the following code:
 ```cs
