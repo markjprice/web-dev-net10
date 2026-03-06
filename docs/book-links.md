@@ -81,7 +81,7 @@
 ## .NET
 - [Download .NET SDK](https://dotnet.microsoft.com/en-us/download)
 - [The convenience of .NET](https://devblogs.microsoft.com/dotnet/the-convenience-of-dotnet/)
-- [What's new in .NET 10](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10)
+- [What's new in .NET 10](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-10/overview)
 - [What's new in .NET 9](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview)
 - [What's new in .NET 8](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8)
 - [.NET Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
@@ -131,6 +131,16 @@ The official announcement links are useful because they describe the most import
 ## EF Core and ASP.NET Core
 - [Tutorial: Get started with EF Core in an ASP.NET MVC web app](https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro)
 - [DbContext Lifetime, Configuration, and Initialization](https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/#dbcontext-in-dependency-injection-for-aspnet-core)
+- [EF Core documentation](https://learn.microsoft.com/en-us/ef/core/)
+- [New features in EF Core 11](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-11.0/whatsnew)
+- [New features in EF Core 10](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-10.0/whatsnew)
+- [New features in EF Core 9](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-9.0/whatsnew)
+- [New features in EF Core 8](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew)
+- [New features in EF Core 7](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-7.0/whatsnew)
+- [New features in EF Core 6](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-6.0/whatsnew)
+- [New features in EF Core 5](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-5.0/whatsnew)
+- [Entity Framework Community Standup - Performance Tuning an EF Core App](https://www.youtube.com/watch?v=VgNFFEqwZPU)
+- [Entity Framework 6.3 and its .NET Core 3.0 and later support](https://devblogs.microsoft.com/dotnet/announcing-ef-core-3-0-and-ef-6-3-general-availability/)
 
 # Chapter 4 - Building and Localizing Web User Interfaces
 
