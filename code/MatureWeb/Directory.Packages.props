@@ -1,16 +1,16 @@
 <Project>
 
-  <!--Last updated package versions: February 10, 2026.-->
+  <!--Last updated package versions: March 10, 2026.-->
 
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <Net10>10.0.3</Net10>
-    <Net11>11.0.0-preview.1.26104.118</Net11>
+    <Net10>10.0.4</Net10>
+    <Net11>11.0.0-preview.2.26159.112</Net11>
   </PropertyGroup>
   
   <ItemGroup Label="For EF Core.">
     <!-- To use the .NET 11 preview packages, change the versions below from $(Net10) to $(Net11). -->
-    <!-- Your projects should also target net11 and you must install .NET 11 Preview SDK. -->
+    <!-- Your projects should target net11.0 and you must install .NET 11 Preview SDK. -->
     
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(Net10)" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="$(Net10)" />
@@ -19,8 +19,8 @@
   </ItemGroup>
   
   <ItemGroup Label="For testing.">
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
-    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.3" />
+    <PackageVersion Include="coverlet.collector" Version="8.0.0" />
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
     <PackageVersion Include="Microsoft.Playwright" Version="1.58.0" />
@@ -40,12 +40,14 @@
 
   <ItemGroup Label="For ASP.NET Core web services.">
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="$(Net10)" />
-    <PackageVersion Include="Scalar.AspNetCore" Version="2.12.36" />
+    <PackageVersion Include="Scalar.AspNetCore" Version="2.13.3" />
     <!-- Refit 10.0.1 is available but it could have breaking changes
          so I recommend using 9.0.2 to remain compatible with the book. -->
     <PackageVersion Include="Refit" Version="9.0.2" />
     <PackageVersion Include="Refit.HttpClientFactory" Version="9.0.2" />
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(Net10)" />
+    <!-- Asp.Versioning 10.0.0-preview.1 is available but it could have breaking changes
+         so I recommend using 8.1.1 to remain compatible with the book. -->
     <PackageVersion Include="Asp.Versioning.Mvc" Version="8.1.1" />
     <PackageVersion Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.1" />
   </ItemGroup>
@@ -57,7 +59,7 @@
   </ItemGroup>
   
   <ItemGroup Label="For FastEndpoints web services.">
-    <!-- FastEndpoints 8.x betas are available but they could have breaking changes
+    <!-- FastEndpoints 8.x is available but it could have breaking changes
          so I recommend using 7.2.0 to remain compatible with the book. -->
     <PackageVersion Include="FastEndpoints" Version="7.2.0" />
     <PackageVersion Include="FluentValidation" Version="12.1.1" />
@@ -66,7 +68,7 @@
   </ItemGroup>
   
   <ItemGroup Label="For Umbraco CMS.">
-    <PackageVersion Include="Umbraco.Cms" Version="17.1.0" />
+    <PackageVersion Include="Umbraco.Cms" Version="17.2.2" />
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
   </ItemGroup>
 
