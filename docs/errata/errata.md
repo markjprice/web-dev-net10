@@ -1,4 +1,4 @@
-**Errata** (7 items)
+**Errata** (8 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/web-dev-net10/issues) or email me at markjprice (at) gmail.com.
 
@@ -11,6 +11,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 331 - Implementing an anonymous inline delegate as middleware](#page-331---implementing-an-anonymous-inline-delegate-as-middleware)
 - [Page 431 - Implementing Scalar](#page-431---implementing-scalar)
 - [Page 456 - Consuming web services using Refit](#page-456---consuming-web-services-using-refit)
+- [Page 550 - Versioning OData controllers](#page-550---versioning-odata-controllers)
 
 
 # Page 23 - Configuring CPM for this book’s projects
@@ -106,4 +107,18 @@ In Step 5, as well as importing the `Refit` namespace, you must import the `Nort
 ```cs
 using Refit; // To use AddRefitClient and so on.
 using Northwind.Mvc.Clients; // To use ICustomersClient.
+```
+
+# Page 550 - Versioning OData controllers
+
+> Thanks to [zkazz](https://github.com/zkazz) for raising [this issue on March 11, 2026](https://github.com/markjprice/web-dev-net10/issues/9).
+
+In Step 2, in the first method the statement:
+```cs
+return Ok(db.Products);
+```
+
+Should be:
+```cs
+return Ok(_db.Products);
 ```
