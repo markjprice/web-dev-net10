@@ -1,4 +1,4 @@
-**Errata** (8 items)
+**Errata** (9 items)
 
 If you find any mistakes, then please [raise an issue in this repository](https://github.com/markjprice/web-dev-net10/issues) or email me at markjprice (at) gmail.com.
 
@@ -12,6 +12,7 @@ If you find any mistakes, then please [raise an issue in this repository](https:
 - [Page 431 - Implementing Scalar](#page-431---implementing-scalar)
 - [Page 456 - Consuming web services using Refit](#page-456---consuming-web-services-using-refit)
 - [Page 550 - Versioning OData controllers](#page-550---versioning-odata-controllers)
+- [Page 639 - Configuring the French variant home page](#page-639---configuring-the-french-variant-home-page)
 
 
 # Page 23 - Configuring CPM for this book’s projects
@@ -122,3 +123,12 @@ Should be:
 ```cs
 return Ok(_db.Products);
 ```
+
+# Page 639 - Configuring the French variant home page
+
+> Thanks to [zkazz](https://github.com/zkazz) for raising [this issue on March 20, 2026](https://github.com/markjprice/web-dev-net9/issues/71).
+
+The user interface labelling has changed. In Steps 3 and 5, I wrote, "In the **Domains** section, click **Add new domain**." 
+
+This should now be, "In the **Hostnames** section, click **Add new hostname**.", as shown in the following figure:
+![Configuring hostnames](hostnames.png)
