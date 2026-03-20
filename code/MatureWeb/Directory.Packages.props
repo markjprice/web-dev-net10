@@ -73,6 +73,7 @@
   <ItemGroup Label="For Umbraco CMS.">
     <PackageVersion Include="Umbraco.Cms" Version="17.2.2" />
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+    <PackageVersion Include="MimeKit" Version="4.15.1" />
   </ItemGroup>
 
 </Project>
