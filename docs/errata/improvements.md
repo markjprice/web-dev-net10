@@ -1,6 +1,6 @@
 **Improvements** (1 item)
 
-If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/web-dev-net9/issues) or email me at markjprice (at) gmail.com.
+If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/web-dev-net10/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 127 - Exercise 2.2 – Practice exercises, Practice unit testing MVC controllers](#page-127---exercise-22--practice-exercises-practice-unit-testing-mvc-controllers)
 
