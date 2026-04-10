@@ -41,7 +41,7 @@
 # Chapter 1 - Introducing Real-World Web Development Using .NET
 
 ## Set up your development environment
-- [Set up your development environment](https://github.com/markjprice/web-dev-net10/blob/main/docs/ch01-setupdev-env.md)
+- [Set up your development environment](https://github.com/markjprice/web-dev-net10/blob/main/docs/ch01-setup-dev-env.md)
 - [Kestrel server](https://github.com/dotnet/aspnetcore/tree/main/src/Servers/Kestrel)
 - [Dan Roth quote](https://github.com/dotnet/aspnetcore/issues/51834#issuecomment-1913282747)
 - [Dan Roth profile](https://devblogs.microsoft.com/dotnet/author/danroth27/)
