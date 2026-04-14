@@ -1,11 +1,11 @@
 <Project>
 
-  <!--Last updated package versions: March 10, 2026.-->
+  <!--Last updated package versions: April 14, 2026.-->
 
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <Net10>10.0.4</Net10>
-    <Net11>11.0.0-preview.2.26159.112</Net11>
+    <Net10>10.0.6</Net10>
+    <Net11>11.0.0-preview.3.26207.106</Net11>
   </PropertyGroup>
   
   <ItemGroup Label="For EF Core.">
@@ -19,11 +19,11 @@
   </ItemGroup>
   
   <ItemGroup Label="For testing.">
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
-    <PackageVersion Include="coverlet.collector" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.4.0" />
+    <PackageVersion Include="coverlet.collector" Version="8.0.1" />
     <PackageVersion Include="xunit" Version="2.9.3" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
-    <PackageVersion Include="Microsoft.Playwright" Version="1.58.0" />
+    <PackageVersion Include="Microsoft.Playwright" Version="1.59.0" />
     <PackageVersion Include="NSubstitute" Version="5.3.0" />
   </ItemGroup>
   
@@ -42,7 +42,7 @@
     <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(Net10)" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="$(Net10)" />
 
-    <PackageVersion Include="Scalar.AspNetCore" Version="2.13.3" />
+    <PackageVersion Include="Scalar.AspNetCore" Version="2.13.22" />
 
     <!-- Refit 10.0.1 is available but it could have breaking changes
          so I recommend using 9.0.2 to remain compatible with the book. -->
@@ -71,7 +71,7 @@
   </ItemGroup>
   
   <ItemGroup Label="For Umbraco CMS.">
-    <PackageVersion Include="Umbraco.Cms" Version="17.2.2" />
+    <PackageVersion Include="Umbraco.Cms" Version="17.3.3" />
     <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
     <PackageVersion Include="MimeKit" Version="4.15.1" />
   </ItemGroup>
