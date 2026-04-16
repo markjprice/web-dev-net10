@@ -1,8 +1,9 @@
-**Improvements** (1 item)
+**Improvements** (2 items)
 
 If you have suggestions for improvements, then please [raise an issue in this repository](https://github.com/markjprice/web-dev-net10/issues) or email me at markjprice (at) gmail.com.
 
 - [Page 127 - Exercise 2.2 – Practice exercises, Practice unit testing MVC controllers](#page-127---exercise-22--practice-exercises-practice-unit-testing-mvc-controllers)
+- [Page 509 - Creating the test project](#page-509---creating-the-test-project)
 
 
 # Page 127 - Exercise 2.2 – Practice exercises, Practice unit testing MVC controllers
@@ -40,3 +41,12 @@ So conceptually, you did exactly what a unit test should do: satisfy the constru
 If anything, the jump in difficulty comes from the fact that once dependency injection and EF Core enter the picture, unit testing naturally becomes more about architecture than syntax. The test forces you to think about boundaries and separation of concerns. That’s not you missing something. 
 
 In larger production systems, many teams avoid mocking `DbContext` directly and instead depend on an interface or repository abstraction. That makes unit testing cleaner. But for the purpose of the exercise, your approach was sound.
+
+# Page 509 - Creating the test project
+
+> Thanks to [Moisés Sirvente](https://github.com/es-moises) for raising [this issue on April 15, 2026](https://github.com/markjprice/web-dev-net9/issues/72).
+
+In Step 6, I wrote, "Run the tests in the `WebServiceTests` project..."
+
+In the next edition I will add a note to remind the reader that it´s necessary to have the environment variables `MYSQL_USER` and `MYSQL_PWD` set because the `launchSettings.json` does not work in the test project.
+
